@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 
-export default function PdfMerge({ onBack }) {
+function PdfMerge() {
   const [files, setFiles] = useState([]);
-  const [merged, setMerged] = useState(false);
 
-  const handleFiles = (e) => {
-    setFiles([...e.target.files]);
-    setMerged(false);
+  const handleFileChange = (e) => {
+    setFiles(e.target.files);
   };
 
-  const handleMerge = (e) => {
+  const handleMerge = async (e) => {
     e.preventDefault();
-    // TODO: Connect to your backend API for merging PDFs
-    setMerged(true);
+    const formData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+    const response = await fetch("https://vstack-backend.onrender.com/pdf/merge", {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "merged.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } else {
+      alert("Failed to merge PDFs");
+    }
   };
 
   return (
-    <section className="main-content">
-      <button onClick={onBack}>&larr; Back to Tools</button>
-      <h2>PDF Merge</h2>
-      <form onSubmit={handleMerge}>
-        <input
-          type="file"
-          accept="application/pdf"
-          multiple
-          onChange={handleFiles}
-          required
-        />
-        <br />
-        <button type="submit" disabled={files.length < 2}>
-          Merge PDFs
-        </button>
-      </form>
-      {merged && (
-        <div style={{ marginTop: "1rem", color: "green" }}>
-          <strong>Success!</strong> (This is a placeholder. Integrate API to get the merged PDF download link.)
-        </div>
-      )}
-    </section>
+    <form onSubmit={handleMerge}>
+      <input type="file" multiple onChange={handleFileChange} accept="application/pdf" />
+      <button type="submit">Merge PDFs</button>
+    </form>
   );
 }
+
+export default PdfMerge;
