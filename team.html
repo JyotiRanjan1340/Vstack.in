@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Our Team - Expert Engineers & Automation Specialists</title>
+  <meta name="description" content="Meet the engineering team behind VStack's automation solutions. Senior engineers with 8+ years average experience." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{--blue-900:#032b57;--muted:#6b7280;--max-width:1200px}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;color:var(--blue-900);background:linear-gradient(180deg,#f8fbff,#fff)}
+    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:28px 0}
+    header{display:flex;align-items:center;justify-content:space-between}
+    nav a{margin-left:12px;text-decoration:none;color:var(--blue-900)}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .member{background:#fff;border-radius:12px;padding:16px;border:1px solid rgba(3,43,87,0.04);box-shadow:0 8px 24px rgba(10,37,77,0.04);display:flex;gap:12px;align-items:center}
+    .avatar{width:76px;height:76px;border-radius:10px;background:linear-gradient(90deg,#eaf4ff,#fff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue-700)}
+    .role{font-size:13px;color:var(--muted)}
+    @media (max-width:980px){.team-grid{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+    @media (max-width:640px){.team-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" style="font-weight:800;text-decoration:none;color:var(--blue-900)">VStack</a>
+      <nav aria-label="Primary Navigation">
+        <a href="about.html">About</a>
+        <a href="why-us.html">Why Us</a>
+        <a href="team.html">Team</a>
+        <a href="products.html">Services</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Meet the engineers behind your automation</h1>
+      <p class="muted">A distributed team of senior engineers, designers and DevOps specialists — remote-first, with on-site capabilities.</p>
+
+      <section style="margin-top:18px">
+        <h2>Leadership</h2>
+        <div class="member" style="margin-top:10px">
+          <div class="avatar" aria-hidden="true">JB</div>
+          <div>
+            <div style="font-weight:700">Jayaditya Badatya</div>
+            <div class="role">Founder & Chief Architect</div>
+            <div style="margin-top:6px;color:var(--muted)">15+ years building scalable systems. Expert in distributed systems, automation and cloud architecture.</div>
+            <div style="margin-top:8px"><a href="mailto:j.r.badatya@gmail.com">j.r.badatya@gmail.com</a> · <a href="tel:+917894492820">+91 78944 92820</a></div>
+            <div style="margin-top:6px;font-style:italic;color:var(--muted)">"Great automation isn't just about code—it's about understanding workflows and people."</div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px">
+        <h2>Our team</h2>
+        <div class="team-grid" role="list">
+          <div class="member" role="listitem">
+            <div class="avatar">AP</div>
+            <div>
+              <div style="font-weight:700">Asha Priyadarshini</div>
+              <div class="role">Senior Backend Engineer</div>
+              <div style="color:var(--muted)">Node.js, Postgres, distributed systems</div>
+            </div>
+          </div>
+
+          <div class="member" role="listitem">
+            <div class="avatar">RK</div>
+            <div>
+              <div style="font-weight:700">Rakesh Kumar</div>
+              <div class="role">Frontend & Mobile Lead</div>
+              <div style="color:var(--muted)">React, React Native, UX</div>
+            </div>
+          </div>
+
+          <div class="member" role="listitem">
+            <div class="avatar">SM</div>
+            <div>
+              <div style="font-weight:700">Sushmita Mohanty</div>
+              <div class="role">Data Engineer</div>
+              <div style="color:var(--muted)">Airflow, ETL, data quality</div>
+            </div>
+          </div>
+
+          <div class="member" role="listitem">
+            <div class="avatar">NV</div>
+            <div>
+              <div style="font-weight:700">Naveen Verma</div>
+              <div class="role">DevOps / SRE</div>
+              <div style="color:var(--muted)">Kubernetes, Terraform, observability</div>
+            </div>
+          </div>
+
+          <div class="member" role="listitem">
+            <div class="avatar">HP</div>
+            <div>
+              <div style="font-weight:700">Himanshu Patnaik</div>
+              <div class="role">QA & Security</div>
+              <div style="color:var(--muted)">Automated testing, security audits</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px">
+        <h2>Culture & ways of working</h2>
+        <div class="card" style="margin-top:10px">
+          <p class="muted">Remote-first, collaboration-focused culture with daily standups, knowledge-sharing and continuous learning. We prioritize outcomes, not hours — and emphasize sustainable pace.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:22px;color:var(--muted);border-top:1px solid rgba(3,43,87,0.04);padding-top:12px;display:flex;justify-content:space-between">
+      <div>© VStack — Bhubaneswar</div>
+      <div><a href="mailto:j.r.badatya@gmail.com" style="text-decoration:none;color:var(--muted)">j.r.badatya@gmail.com</a></div>
+    </footer>
+  </div>
+</body>
+</html>
