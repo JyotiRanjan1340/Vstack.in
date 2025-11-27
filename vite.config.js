@@ -1,17 +1,16 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-  root: 'public',
+  // If your html files are in the repository root, leave root as default.
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: 'public/index.html',
-        about: 'public/about.html',
-        'why-us': 'public/why-us.html',
-        team: 'public/team.html',
-        products: 'public/products.html'
+        main: resolve(__dirname, 'index.html'),
+        about: resolve(__dirname, 'about.html'),
+        products: resolve(__dirname, 'products.html'),
+        team: resolve(__dirname, 'team.html'),
+        'why-us': resolve(__dirname, 'why-us.html')
       }
     }
   }
