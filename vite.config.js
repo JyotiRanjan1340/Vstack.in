@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  // If your html files are in the repository root, leave root as default.
   build: {
     rollupOptions: {
       input: {
