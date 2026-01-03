@@ -8,6 +8,7 @@
     }
   ],
   "routes": [
+    { "handle": "filesystem" },
     { "src": "/", "dest": "/index.html" },
     { "src": "/about", "dest": "/about.html" },
     { "src": "/products", "dest": "/products.html" },
