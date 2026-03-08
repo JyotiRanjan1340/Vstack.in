@@ -1,467 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Why Choose VStack — Proven Track Record in Automation</title>
-  <meta name="description" content="Discover why leading teams trust VStack for mission-critical automation. 99.9% uptime, transparent process, and 50+ successful projects delivered." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why VStack — Case Studies & Comparisons</title>
+  <meta name="description" content="Why engineering and operations teams choose VStack — real client outcomes, transparent comparisons, and a clear delivery process." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    .page-hero {
-      background: linear-gradient(160deg, #06111f 0%, #0c1e35 60%, #0d2848 100%);
-      padding: 90px 0 80px; position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content:''; position:absolute; bottom:-200px; right:-100px; width:600px; height:600px; border-radius:50%;
-      background:radial-gradient(circle, rgba(26,110,245,0.1), transparent 65%); pointer-events:none;
-    }
-    .page-hero h1 { color:#fff; margin-bottom:16px; }
-    .page-hero .lead { color:rgba(255,255,255,0.6); max-width:54ch; }
+    :root{--ink:#06111f;--ink2:#1a2e45;--ink3:#2d4a6a;--blue:#1a6ef5;--blue2:#3d8bff;--teal:#0ec9b0;--surf:#fff;--surf2:#f4f7fc;--surf3:#eaf0fa;--bdr:rgba(6,17,31,0.08);--bdr-b:rgba(26,110,245,0.2);--muted:#5a6f87;--sh:0 8px 32px rgba(6,17,31,0.09);--sh-lg:0 20px 60px rgba(6,17,31,0.13);--sh-b:0 8px 28px rgba(26,110,245,0.22);--rad:14px;--rad-lg:20px;--max:1140px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;color:var(--ink)}
+    h1{font-size:clamp(28px,4.5vw,46px);font-weight:800;letter-spacing:-0.02em}h2{font-size:clamp(20px,3vw,32px);font-weight:700;letter-spacing:-0.01em}h3{font-size:19px;font-weight:700}h4{font-size:16px;font-weight:600}
+    p{color:var(--muted)}a{color:var(--blue)}.wrap{width:92%;max-width:var(--max);margin:0 auto}section{padding:72px 0}
 
-    /* Metrics bar */
-    .metrics-bar { background:var(--blue); padding:40px 0; }
-    .metrics-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center; }
-    .metrics-grid .num { font-family:'Syne',sans-serif; font-size:38px; font-weight:800; color:#fff; }
-    .metrics-grid .lbl { font-size:14px; color:rgba(255,255,255,0.65); margin-top:4px; }
+    /* HEADER */
+    .hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);transition:box-shadow .3s}.hdr.sc{box-shadow:var(--sh)}
+    .hdr-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+    .bmark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a6ef5,#0a4dc4);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:18px;box-shadow:var(--sh-b);flex-shrink:0}
+    .btxt{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink)}.bsub{font-size:11px;color:var(--muted);line-height:1}
+    nav.dnav{display:flex;align-items:center;gap:2px}nav.dnav a{font-size:14px;font-weight:500;color:var(--ink3);text-decoration:none;padding:8px 11px;border-radius:8px;transition:color .2s,background .2s}nav.dnav a:hover{color:var(--blue);background:var(--surf2)}nav.dnav a.cur{color:var(--blue);font-weight:600;background:var(--surf2)}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:var(--rad);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .22s;white-space:nowrap}
+    .btn-p{background:var(--blue);color:#fff;box-shadow:var(--sh-b)}.btn-p:hover{background:var(--blue2);transform:translateY(-2px);color:#fff}
+    .btn-s{background:var(--surf);color:var(--ink2);border:1.5px solid var(--bdr)}.btn-s:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+    .btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}.btn-g:hover{background:rgba(255,255,255,.1);color:#fff}
+    .btn-wh{background:#fff;color:var(--blue);font-weight:700}.btn-sm{padding:9px 17px;font-size:14px}.btn-lg{padding:15px 30px;font-size:16px;border-radius:15px}
+    .ham{display:none;flex-direction:column;gap:5px;padding:7px;background:none;border:none;cursor:pointer}.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+    .mnav{display:none;flex-direction:column;gap:2px;padding:10px 0 16px;border-top:1px solid var(--bdr)}.mnav.open{display:flex}.mnav a{padding:11px 14px;font-size:15px;font-weight:500;color:var(--ink3);text-decoration:none;border-radius:8px}.mnav a:hover{background:var(--surf2)}
 
-    /* Difference cards */
-    .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
-    .diff-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:28px;
-      transition:transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .diff-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-blue); }
-    .diff-icon { width:52px; height:52px; border-radius:14px; background:var(--blue-glow); border:1px solid var(--border-blue); display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:16px; }
-    .diff-card h3 { font-size:18px; margin-bottom:10px; }
-    .diff-card p { font-size:14px; color:var(--muted); line-height:1.65; }
+    /* HERO */
+    .hero{background:linear-gradient(160deg,#06111f 0%,#0c1e35 55%,#0d2848 100%);padding:80px 0 70px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-180px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.1),transparent 65%);pointer-events:none}
+    .hero-in{position:relative;z-index:1}.hero h1{color:#fff;margin:16px 0 16px}.hero .lead{color:rgba(255,255,255,.62);font-size:17px;max-width:52ch;margin-bottom:28px}
+    .slabel{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(26,110,245,.1);border:1px solid rgba(26,110,245,.2);padding:5px 13px;border-radius:99px}
+    .slabel-wh{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.12)}
 
-    /* Process */
-    .process-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:40px; position:relative; }
-    .process-row::before {
-      content:''; position:absolute; top:22px; left:10%; right:10%; height:1px;
-      background:linear-gradient(90deg, transparent, var(--border-blue) 20%, var(--border-blue) 80%, transparent);
-      pointer-events:none; z-index:0;
-    }
-    .proc-step {
-      text-align:center; position:relative; z-index:1;
-    }
-    .proc-num {
-      width:44px; height:44px; border-radius:12px; margin:0 auto 12px;
-      background:var(--blue); color:#fff; font-family:'Syne',sans-serif; font-weight:700; font-size:16px;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:var(--shadow-blue);
-    }
-    .proc-step h4 { font-size:14px; margin-bottom:4px; }
-    .proc-step .dur { font-size:12px; color:var(--muted); }
+    /* METRICS BAR */
+    .mbar{background:var(--blue);padding:36px 0}
+    .mbar-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+    .mn{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:#fff}
+    .ml{font-size:13px;color:rgba(255,255,255,.65);margin-top:4px}
 
-    /* Case studies */
-    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
-    .case-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); overflow:hidden;
-      transition:transform .25s, box-shadow .25s;
-    }
-    .case-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
-    .case-header {
-      background:linear-gradient(135deg,#06111f,#0c1e35);
-      padding:24px; display:flex; align-items:center; gap:14px;
-    }
-    .case-emoji { font-size:32px; }
-    .case-header h3 { color:#fff; font-size:16px; }
-    .case-header .badge { margin-top:4px; }
-    .case-body { padding:20px; }
-    .case-result {
-      background:var(--surface-2); border-radius:10px; padding:14px;
-      font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--blue);
-      margin-bottom:12px; text-align:center;
-    }
-    .case-result .sub { font-family:'DM Sans',sans-serif; font-size:12px; color:var(--muted); font-weight:400; }
-    .case-body p { font-size:14px; color:var(--muted); line-height:1.65; margin-bottom:12px; }
-    .case-stack { display:flex; flex-wrap:wrap; gap:6px; }
+    /* DIFFERENCE GRID */
+    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .dc{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);padding:26px;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .dc:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--bdr-b)}
+    .dc .icon{font-size:26px;margin-bottom:14px}.dc h4{margin-bottom:8px}.dc p{font-size:14px;line-height:1.65}
 
-    /* Comparison table */
-    .comp-table { width:100%; border-collapse:collapse; margin-top:24px; }
-    .comp-table th { padding:14px 20px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); background:var(--surface-2); text-align:left; }
-    .comp-table th:not(:first-child) { text-align:center; }
-    .comp-table td { padding:16px 20px; border-top:1px solid var(--border); font-size:14px; }
-    .comp-table td:first-child { font-weight:500; color:var(--ink); }
-    .comp-table td:not(:first-child) { text-align:center; }
-    .comp-table tr:hover td { background:var(--surface-2); }
-    .yes { color:#059980; font-weight:700; }
-    .no { color:#e05a5a; }
-    .maybe { color:#f59e0b; }
-    .comp-vstack-col { background:rgba(26,110,245,0.04); }
+    /* PROCESS */
+    .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:36px;position:relative}
+    .proc::before{content:'';position:absolute;top:22px;left:10%;width:80%;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));border-radius:2px;z-index:0}
+    .ps{text-align:center;position:relative;z-index:1;padding:0 10px}
+    .ps-num{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:3px solid #fff;box-shadow:var(--sh-b)}
+    .ps h4{font-size:14px;margin-bottom:6px}.ps p{font-size:13px;line-height:1.5}
 
-    /* Testimonials in why-us */
-    .testi-full { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+    /* CASE STUDIES */
+    .cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .cscard{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);overflow:hidden;transition:transform .25s,box-shadow .25s}
+    .cscard:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+    .cs-top{padding:20px;background:linear-gradient(135deg,#06111f,#1a2e45);display:flex;align-items:center;gap:12px}
+    .cs-icon{font-size:28px}.cs-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff}
+    .cs-type{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+    .cs-body{padding:22px}
+    .cs-stat{margin-bottom:14px}
+    .cs-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--blue)}
+    .cs-desc{font-size:13px;color:var(--muted);margin-top:2px}
+    .cs-quote{font-size:14px;color:var(--ink2);font-style:italic;line-height:1.6;border-left:3px solid var(--bdr-b);padding-left:12px;margin-top:14px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+    .tag{display:inline-block;font-size:12px;padding:3px 9px;border-radius:6px;background:var(--surf2);color:var(--muted);border:1px solid var(--bdr)}
 
-    @media(max-width:980px) {
-      .metrics-grid { grid-template-columns:repeat(2,1fr); }
-      .diff-grid { grid-template-columns:repeat(2,1fr); }
-      .process-row { grid-template-columns:repeat(3,1fr); }
-      .process-row::before { display:none; }
-      .case-grid { grid-template-columns:repeat(2,1fr); }
-      .testi-full { grid-template-columns:1fr; }
-    }
-    @media(max-width:640px) {
-      .diff-grid, .case-grid { grid-template-columns:1fr; }
-      .process-row { grid-template-columns:repeat(2,1fr); }
-    }
+    /* COMPARISON TABLE */
+    .ctbl{width:100%;border-collapse:collapse;margin-top:22px}
+    .ctbl th{text-align:left;padding:12px 16px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--surf2)}
+    .ctbl th:nth-child(2){color:var(--blue)}
+    .ctbl td{padding:14px 16px;border-top:1px solid var(--bdr);font-size:14px}
+    .ctbl td:first-child{font-weight:500;color:var(--ink)}.ctbl tr:hover td{background:var(--surf2)}
+    .yes{color:#059980;font-weight:700}.no{color:#e05a5a}.may{color:#f59e0b}
+
+    /* TESTIMONIALS */
+    .tes-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .tc{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:26px}
+    .stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+    .qt{font-size:15px;color:var(--ink2);line-height:1.7;font-style:italic}
+    .ta{display:flex;align-items:center;gap:12px;margin-top:18px}
+    .av{width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,var(--surf3),#dce9f8);border:1px solid var(--bdr-b);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;color:var(--blue);font-size:14px;flex-shrink:0}
+    .an{font-weight:600;font-size:14px;color:var(--ink)}.ar{font-size:13px;color:var(--muted)}
+
+    /* CTA */
+    .ctab{background:linear-gradient(135deg,#06111f,#0c1e35);padding:72px 0;text-align:center;position:relative;overflow:hidden}
+    .ctab::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.1),transparent 65%);pointer-events:none}
+    .ctab .wrap{position:relative;z-index:1}.ctab h2{color:#fff;margin-bottom:12px}.ctab p{color:rgba(255,255,255,.55);max-width:48ch;margin:0 auto 28px}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* FOOTER */
+    .ftr{background:#06111f;padding:60px 0 28px}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .fdesc{font-size:14px;color:rgba(255,255,255,.45);margin-top:12px;max-width:26ch;line-height:1.7}
+    .ftitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
+    .ftr a{display:block;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;padding:4px 0;transition:color .2s}.ftr a:hover{color:#fff}
+    .fbot{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:13px;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:10px}.fbot-l{display:flex;gap:20px}
+
+    @media(max-width:1020px){nav.dnav{display:none}.ham{display:flex}.nav-cta{display:none}.diff-grid{grid-template-columns:repeat(2,1fr)}.cs-grid{grid-template-columns:1fr}.proc{grid-template-columns:1fr 1fr;gap:20px}.proc::before{display:none}.tes-g{grid-template-columns:1fr}.mbar-g{grid-template-columns:repeat(2,1fr)}.fgrid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){section{padding:52px 0}.diff-grid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}.proc{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="brand">
-          <div class="brand-mark">V</div>
-          <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-        </a>
-        <nav class="main-nav" aria-label="Primary">
-          <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html" class="active">Why Us</a>
-          <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
-        </nav>
-        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Book a Free Call →</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
-        <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
-        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
+
+<header class="hdr" id="hdr">
+  <div class="wrap"><div class="hdr-in">
+    <a href="index.html" class="brand"><div class="bmark">V</div><div><div class="btxt">VStack</div><div class="bsub">Automation & Software</div></div></a>
+    <nav class="dnav"><a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html" class="cur">Why Us</a><a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a></nav>
+    <a href="index.html#contact" class="btn btn-p btn-sm nav-cta">Book a Free Call →</a>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mnav" id="mnav"><a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a><a href="index.html#contact" class="btn btn-p btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a></div>
+  </div>
+</header>
+
+<section class="hero"><div class="wrap hero-in">
+  <div class="slabel slabel-wh">Why VStack</div>
+  <h1>Engineering partnerships<br>that actually deliver</h1>
+  <p class="lead">Real outcomes, proven process, and engineering values you can verify. Here's why teams choose VStack over agencies and freelancers.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="index.html#contact" class="btn btn-p btn-lg">Book a Free Call →</a>
+    <a href="products.html" class="btn btn-g btn-lg">View our services</a>
+  </div>
+</div></section>
+
+<!-- METRICS -->
+<div class="mbar"><div class="wrap"><div class="mbar-g">
+  <div><div class="mn" data-target="50">0</div><div class="ml">Projects Delivered</div></div>
+  <div><div class="mn">99.9%</div><div class="ml">Uptime SLA</div></div>
+  <div><div class="mn">4.9★</div><div class="ml">Client Satisfaction</div></div>
+  <div><div class="mn">&lt;24hr</div><div class="ml">Incident Response</div></div>
+</div></div></div>
+
+<!-- DIFFERENCE -->
+<section><div class="wrap">
+  <div class="slabel">The VStack Difference</div>
+  <h2 style="margin:12px 0 4px">What sets us apart</h2>
+  <div class="diff-grid">
+    <div class="dc"><div class="icon">🏗️</div><h4>Custom architectures</h4><p>We design solutions around your business needs — not one-size-fits-all templates. Your stack, your requirements, your constraints.</p></div>
+    <div class="dc"><div class="icon">👨‍💻</div><h4>Direct engineer access</h4><p>You talk to the engineers building your system. No account managers, no ticket queues, no translation layers.</p></div>
+    <div class="dc"><div class="icon">🔒</div><h4>Security by design</h4><p>Compliance and security baked into every pipeline and deployment from day one — not retrofitted after launch.</p></div>
+    <div class="dc"><div class="icon">📦</div><h4>Full code ownership</h4><p>Shared repositories, runbooks, and knowledge transfer at every milestone. Your code belongs to you — always.</p></div>
+    <div class="dc"><div class="icon">📊</div><h4>Transparent SLOs</h4><p>Clear SLA commitments, live monitoring dashboards, and honest incident communication — no spin, no silence.</p></div>
+    <div class="dc"><div class="icon">🚀</div><h4>Incremental delivery</h4><p>Weekly demos, CI/CD pipelines, and milestone-based billing. You always see progress and can course-correct early.</p></div>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section style="background:var(--surf2)"><div class="wrap">
+  <div class="slabel">How We Deliver</div>
+  <h2 style="margin:12px 0 4px">A clear process from day one</h2>
+  <p style="font-size:15px;max-width:52ch">Every engagement follows the same rigorous process — no guesswork, no surprises.</p>
+  <div class="proc">
+    <div class="ps"><div class="ps-num">1</div><h4>Discovery</h4><p>Map your challenge, define success metrics, and agree on scope and timeline.</p></div>
+    <div class="ps"><div class="ps-num">2</div><h4>Architecture</h4><p>Design the solution, choose the right stack, and present for review before building.</p></div>
+    <div class="ps"><div class="ps-num">3</div><h4>Build</h4><p>Iterative sprints with weekly demos and continuous integration from day one.</p></div>
+    <div class="ps"><div class="ps-num">4</div><h4>Deploy</h4><p>Production launch with monitoring, runbooks, and a war-room standby period.</p></div>
+    <div class="ps"><div class="ps-num">5</div><h4>Operate</h4><p>Ongoing SRE, incident response, and optimisation — or handover with full documentation.</p></div>
+  </div>
+</div></section>
+
+<!-- CASE STUDIES -->
+<section><div class="wrap">
+  <div class="slabel">Case Studies</div>
+  <h2 style="margin:12px 0 4px">Real projects, measurable outcomes</h2>
+  <div class="cs-grid">
+    <div class="cscard">
+      <div class="cs-top"><div class="cs-icon">🏭</div><div><div class="cs-name">Order Fulfilment Pipeline</div><div class="cs-type">E-commerce Automation</div></div></div>
+      <div class="cs-body">
+        <div class="cs-stat"><div class="cs-num">95%</div><div class="cs-desc">Reduction in order processing time</div></div>
+        <p style="font-size:14px">End-to-end automation connecting e-commerce, warehouse management, and billing systems. Handles 10,000+ orders per day with zero manual intervention.</p>
+        <div class="cs-quote">"ETL failures dropped to zero. Reporting lag went from 8 hours to under 30 minutes."</div>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Postgres</span><span class="tag">AWS Lambda</span><span class="tag">SQS</span></div>
       </div>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="section-label" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Why VStack</div>
-      <h1 style="margin-top:16px">Why leading teams trust VStack<br>for mission-critical automation</h1>
-      <p class="lead">Transparent process, engineering excellence, and practical outcomes with measurable ROI. No buzzwords, no fluff — just results.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
-        <a href="index.html#contact" class="btn btn-primary btn-lg">Book a Free Strategy Call →</a>
-        <a href="#case-studies" class="btn btn-ghost btn-lg">See Case Studies</a>
+    <div class="cscard">
+      <div class="cs-top"><div class="cs-icon">📊</div><div><div class="cs-name">Customer Data Lake</div><div class="cs-type">Data Engineering</div></div></div>
+      <div class="cs-body">
+        <div class="cs-stat"><div class="cs-num">99.9%</div><div class="cs-desc">Pipeline reliability achieved</div></div>
+        <p style="font-size:14px">Data cleaning, ETL, and UDFs to normalise customer records and feed analytics and ML models reliably. Reporting lag cut from 8 hours to 30 minutes.</p>
+        <div class="cs-quote">"Dashboards and runbooks helped our operations team onboard quickly and confidently."</div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">Redshift</span><span class="tag">dbt</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- METRICS BAR -->
-  <div class="metrics-bar">
-    <div class="container">
-      <div class="metrics-grid">
-        <div><div class="num">50+</div><div class="lbl">Projects Delivered</div></div>
-        <div><div class="num">99.9%</div><div class="lbl">Uptime SLA</div></div>
-        <div><div class="num">4.9 / 5</div><div class="lbl">Client Rating</div></div>
-        <div><div class="num">&lt; 24hr</div><div class="lbl">Incident Response</div></div>
+    <div class="cscard">
+      <div class="cs-top"><div class="cs-icon">📱</div><div><div class="cs-name">Mobile Field App</div><div class="cs-type">Cross-Platform Mobile</div></div></div>
+      <div class="cs-body">
+        <div class="cs-stat"><div class="cs-num">40%</div><div class="cs-desc">Productivity increase reported in 3 months</div></div>
+        <p style="font-size:14px">Cross-platform app for 200+ field workers with offline-first sync, push notifications, and quick forms. Teams adopted it immediately on day one.</p>
+        <div class="cs-quote">"The mobile field app became the backbone for our site supervisors — adopted immediately."</div>
+        <div class="tags"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">Offline-first</span></div>
       </div>
     </div>
   </div>
+</div></section>
 
-  <!-- THE DIFFERENCE -->
-  <section>
-    <div class="container">
-      <div class="section-label">The VStack Difference</div>
-      <h2 style="margin-top:14px">Why teams choose us over<br>agencies and freelancers</h2>
-      <div class="diff-grid">
-        <div class="diff-card">
-          <div class="diff-icon">🏗️</div>
-          <h3>Engineering Excellence</h3>
-          <p>Senior engineers with a proven track record in scalable systems, clean code, and architecture that doesn't need rework in 12 months.</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-icon">🪟</div>
-          <h3>Transparent Process</h3>
-          <p>Our 5-phase approach with weekly demos, shared repositories, clear milestones, and honest communication at every step.</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-icon">🛡️</div>
-          <h3>Risk Mitigation</h3>
-          <p>Shared repositories, comprehensive runbooks, knowledge transfer sessions, and a post-launch warranty on everything we deliver.</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-icon">📞</div>
-          <h3>Direct Engineer Access</h3>
-          <p>You talk directly to the engineers building your system — no account manager layers, ticket queues, or delayed communication.</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-icon">📦</div>
-          <h3>Full Code Ownership</h3>
-          <p>All code, infrastructure, and documentation belongs to you from day one. No proprietary lock-in, no licensing surprises.</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-icon">🔐</div>
-          <h3>Security & Compliance</h3>
-          <p>Security baked into pipelines from the start. OWASP-compliant, with regular security reviews and data protection built in.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- COMPARISON -->
+<section style="background:var(--surf2)"><div class="wrap">
+  <div class="slabel">Comparison</div>
+  <h2 style="margin:12px 0 20px">VStack vs the alternatives</h2>
+  <div style="background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);overflow:hidden">
+    <table class="ctbl">
+      <thead><tr><th>Feature</th><th>VStack ✅</th><th>Agencies</th><th>Freelancers</th></tr></thead>
+      <tbody>
+        <tr><td>Custom architectures</td><td class="yes">✓ Always</td><td class="may">Templates first</td><td class="may">Varies</td></tr>
+        <tr><td>Direct engineer access</td><td class="yes">✓ Always</td><td class="no">✗ Account managers</td><td class="yes">✓ Yes</td></tr>
+        <tr><td>24/7 monitoring & support</td><td class="yes">✓ Included</td><td class="may">Charged extra</td><td class="no">✗ Rarely</td></tr>
+        <tr><td>Full code ownership</td><td class="yes">✓ Always</td><td class="may">Often locked in</td><td class="yes">✓ Usually</td></tr>
+        <tr><td>Post-launch SLA support</td><td class="yes">✓ Included</td><td class="may">New contract needed</td><td class="no">✗ Rarely</td></tr>
+        <tr><td>Transparent pricing</td><td class="yes">✓ Always</td><td class="no">✗ Change orders</td><td class="may">Varies</td></tr>
+        <tr><td>Runbooks & documentation</td><td class="yes">✓ Always</td><td class="may">Extra cost</td><td class="no">✗ Rarely</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
 
-  <!-- PROCESS -->
-  <section style="background:var(--surface-2)">
-    <div class="container">
-      <div class="section-label">Our Process</div>
-      <h2 style="margin-top:14px">How we deliver — every time</h2>
-      <p class="lead" style="max-width:52ch;margin-top:10px">A battle-tested 5-phase approach that keeps you informed and in control throughout.</p>
-      <div class="process-row">
-        <div class="proc-step">
-          <div class="proc-num">1</div>
-          <h4>Discovery</h4>
-          <div class="dur">1 – 2 weeks</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">Requirements, stakeholder interviews, and technical assessment</p>
-        </div>
-        <div class="proc-step">
-          <div class="proc-num">2</div>
-          <h4>Architecture</h4>
-          <div class="dur">1 week</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">System design, tech decisions, milestone breakdown, and sign-off</p>
-        </div>
-        <div class="proc-step">
-          <div class="proc-num">3</div>
-          <h4>Development</h4>
-          <div class="dur">4 – 8 weeks</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">Iterative build with weekly demos and CI/CD from day one</p>
-        </div>
-        <div class="proc-step">
-          <div class="proc-num">4</div>
-          <h4>Testing & QA</h4>
-          <div class="dur">1 – 2 weeks</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">Automated tests, security review, load testing, and UAT</p>
-        </div>
-        <div class="proc-step">
-          <div class="proc-num">5</div>
-          <h4>Launch & Support</h4>
-          <div class="dur">Ongoing</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">Production deployment, monitoring setup, and knowledge transfer</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- TESTIMONIALS -->
+<section><div class="wrap">
+  <div class="slabel">Client Feedback</div>
+  <h2 style="margin:12px 0 4px">What our clients say</h2>
+  <div class="tes-g">
+    <div class="tc"><div class="stars">★★★★★</div><p class="qt">"VStack rebuilt our order ingestion and data cleaning pipelines. Within 6 weeks our nightly ETL failures dropped to zero and reporting lag reduced from 8 hours to under 30 minutes."</p><div class="ta"><div class="av">SP</div><div><div class="an">Santosh Pattnaik</div><div class="ar">CTO — Pharma Life, Bhubaneswar</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p class="qt">"Their automation for our billing and notifications removed a lot of manual work. Dashboards and runbooks helped our operations team onboard quickly and confidently."</p><div class="ta"><div class="av">SN</div><div><div class="an">Siba Prasad Nayak</div><div class="ar">Operations Head, Bhubaneswar</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p class="qt">"The mobile field app became the backbone for our site supervisors. Offline sync and quick forms saved hours each week — our team adopted it immediately."</p><div class="ta"><div class="av">SH</div><div><div class="an">Samsaul Hoda</div><div class="ar">Founder — AK Construction, Bhubaneswar</div></div></div></div>
+  </div>
+</div></section>
 
-  <!-- CASE STUDIES -->
-  <section id="case-studies">
-    <div class="container">
-      <div class="section-label">Case Studies</div>
-      <h2 style="margin-top:14px">Measurable results for real businesses</h2>
-      <p class="lead" style="max-width:52ch;margin-top:10px">Three examples of the outcomes we've delivered for clients.</p>
-      <div class="case-grid">
-        <div class="case-card">
-          <div class="case-header">
-            <div class="case-emoji">🏭</div>
-            <div>
-              <h3>E-Commerce Automation</h3>
-              <span class="badge badge-green">Completed</span>
-            </div>
-          </div>
-          <div class="case-body">
-            <div class="case-result">95% <div class="sub">Reduction in processing time</div></div>
-            <p>10,000 orders per day with zero manual intervention. Order ingestion, warehouse allocation, billing, and compensation flows fully automated. ETL failure rate dropped from nightly to zero.</p>
-            <div class="case-stack">
-              <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">AWS Lambda</span><span class="tag">Temporal</span>
-            </div>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
-            <div class="case-emoji">📊</div>
-            <div>
-              <h3>SaaS Data Pipeline</h3>
-              <span class="badge badge-green">Completed</span>
-            </div>
-          </div>
-          <div class="case-body">
-            <div class="case-result">99.9% <div class="sub">Pipeline reliability achieved</div></div>
-            <p>Rebuilt a brittle ETL pipeline feeding ML models and BI dashboards. Reporting lag reduced from 8 hours to under 30 minutes. Data quality monitoring introduced with automated alerting.</p>
-            <div class="case-stack">
-              <span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">Redshift</span><span class="tag">dbt</span>
-            </div>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
-            <div class="case-emoji">📱</div>
-            <div>
-              <h3>Mobile Field App</h3>
-              <span class="badge badge-green">Completed</span>
-            </div>
-          </div>
-          <div class="case-body">
-            <div class="case-result">40% <div class="sub">Productivity increase</div></div>
-            <p>Cross-platform app for 200+ field workers with offline-first sync, quick forms, and push notifications. Replaced paper-based processes entirely within 3 months of launch.</p>
-            <div class="case-stack">
-              <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Push Notifications</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="ctab"><div class="wrap">
+  <h2>Ready to see these results<br>in your business?</h2>
+  <p>Book a free 30-minute call with a senior engineer. We'll map your challenge to a practical plan.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn btn-wh btn-lg">Book a Free Strategy Call →</a>
+    <a href="products.html" class="btn btn-g btn-lg">View Pricing & Services</a>
+  </div>
+</div></section>
 
-  <!-- COMPARISON TABLE -->
-  <section style="background:var(--surface-2)">
-    <div class="container">
-      <div class="section-label">Comparison</div>
-      <h2 style="margin-top:14px">How we stack up</h2>
-      <div class="card" style="padding:0;overflow:hidden;margin-top:32px">
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th class="comp-vstack-col">VStack</th>
-              <th>Typical Agencies</th>
-              <th>Freelancers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Custom architecture (not templates)</td>
-              <td class="yes comp-vstack-col">✓ Always</td>
-              <td class="maybe">Templates first</td>
-              <td class="maybe">Varies</td>
-            </tr>
-            <tr>
-              <td>24/7 monitoring & support</td>
-              <td class="yes comp-vstack-col">✓ Included</td>
-              <td class="maybe">Charged extra</td>
-              <td class="no">✗ Rarely</td>
-            </tr>
-            <tr>
-              <td>Full code ownership</td>
-              <td class="yes comp-vstack-col">✓ Always</td>
-              <td class="maybe">Often locked</td>
-              <td class="yes">✓ Usually</td>
-            </tr>
-            <tr>
-              <td>Direct engineer access</td>
-              <td class="yes comp-vstack-col">✓ Always</td>
-              <td class="no">✗ Account mgr</td>
-              <td class="yes">✓ Yes</td>
-            </tr>
-            <tr>
-              <td>Post-launch support SLA</td>
-              <td class="yes comp-vstack-col">✓ Included</td>
-              <td class="maybe">New contract</td>
-              <td class="no">✗ Rarely</td>
-            </tr>
-            <tr>
-              <td>Transparent pricing</td>
-              <td class="yes comp-vstack-col">✓ Always</td>
-              <td class="no">✗ Change orders</td>
-              <td class="maybe">Varies</td>
-            </tr>
-            <tr>
-              <td>Security baked in</td>
-              <td class="yes comp-vstack-col">✓ Always</td>
-              <td class="maybe">Sometimes</td>
-              <td class="no">✗ Rarely</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<footer class="ftr"><div class="wrap">
+  <div class="fgrid">
+    <div><a href="index.html" class="brand" style="text-decoration:none"><div class="bmark">V</div><div><div class="btxt" style="color:#fff">VStack</div><div class="bsub" style="color:rgba(255,255,255,.35)">Automation & Software</div></div></a><p class="fdesc">Enterprise-grade automation and software engineering — shipped faster.</p></div>
+    <div><div class="ftitle">Company</div><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
+    <div><div class="ftitle">Services</div><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
+    <div><div class="ftitle">Contact</div><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
+  </div>
+  <div class="fbot"><span>© 2025 VStack — Bhubaneswar, Odisha, India</span><div class="fbot-l"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+</div></footer>
 
-  <!-- TESTIMONIALS -->
-  <section>
-    <div class="container">
-      <div class="section-label">Client Feedback</div>
-      <h2 style="margin-top:14px">What our clients say</h2>
-      <div class="testi-full">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"VStack rebuilt our order ingestion and data cleaning pipelines. Within 6 weeks our nightly ETL failures dropped to zero and reporting lag reduced from 8 hours to under 30 minutes. The team was communicative and honest throughout."</p>
-          <div class="testimonial-author">
-            <div class="avatar">SP</div>
-            <div class="author-info">
-              <div class="name">Santosh Pattnaik</div>
-              <div class="role">CTO — Pharma Life, Bhubaneswar</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Their automation for our billing and notifications removed a lot of manual work. Dashboards and runbooks helped our operations team onboard quickly. They delivered on time and within budget."</p>
-          <div class="testimonial-author">
-            <div class="avatar">SN</div>
-            <div class="author-info">
-              <div class="name">Siba Prasad Nayak</div>
-              <div class="role">Operations Head, Bhubaneswar</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The mobile field app became the backbone for our site supervisors. Offline sync and quick forms saved hours each week — our team adopted it immediately and we saw results within the first month."</p>
-          <div class="testimonial-author">
-            <div class="avatar">SH</div>
-            <div class="author-info">
-              <div class="name">Samsaul Hoda</div>
-              <div class="role">Founder — AK Construction, Bhubaneswar</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section style="background:var(--blue);padding:80px 0;text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff;margin-bottom:12px">Ready to see the difference?</h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:46ch;margin:0 auto 32px">Book a free 30-minute strategy call. We'll listen to your challenge, ask the right questions, and give you an honest assessment — no obligation.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="index.html#contact" class="btn btn-lg" style="background:#fff;color:var(--blue);font-weight:700">Book a Free Strategy Call →</a>
-        <a href="products.html" class="btn btn-ghost btn-lg">View Services & Pricing</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand" style="color:inherit;text-decoration:none">
-            <div class="brand-mark">V</div>
-            <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-          </a>
-          <p class="footer-desc">Enterprise-grade automation and software engineering — shipped faster.</p>
-        </div>
-        <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
-        <div class="footer-col"><h5>Services</h5><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
-        <div class="footer-col"><h5>Contact</h5><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 VStack — Bhubaneswar, Odisha, India</span>
-        <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => { const open = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', open); });
-
-    // Animate numbers on scroll
-    const nums = document.querySelectorAll('.metrics-grid .num');
-    const seen = new Set();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting && !seen.has(en.target)) {
-          seen.add(en.target);
-          en.target.style.animation = 'none';
-          en.target.offsetHeight;
-          en.target.style.animation = 'fadeInUp .5s ease forwards';
-        }
-      });
-    }, { threshold: 0.5 });
-    nums.forEach(n => io.observe(n));
-  </script>
-  <style>
-    @keyframes fadeInUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-  </style>
+<script>
+  const hdr=document.getElementById('hdr');window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>40),{passive:true});
+  const ham=document.getElementById('ham'),mnav=document.getElementById('mnav');
+  ham.addEventListener('click',()=>{const o=mnav.classList.toggle('open');ham.setAttribute('aria-expanded',o);});
+</script>
 </body>
 </html>
