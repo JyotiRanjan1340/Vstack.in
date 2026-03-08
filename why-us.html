@@ -1,119 +1,467 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Why Choose VStack - Proven Track Record in Automation</title>
-  <meta name="description" content="Discover why leading teams trust VStack for mission-critical automation. 99.9% uptime, transparent process, and 50+ successful projects." />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta property="og:title" content="Why Choose VStack — Trusted Automation" />
-  <meta property="og:description" content="Transparent process, engineering excellence, and measurable ROI across industries." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Choose VStack — Proven Track Record in Automation</title>
+  <meta name="description" content="Discover why leading teams trust VStack for mission-critical automation. 99.9% uptime, transparent process, and 50+ successful projects delivered." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    :root{--blue-900:#032b57;--blue-700:#0b4f8a;--muted:#6b7280;--accent:linear-gradient(90deg,#0b4f8a,#1e7bd6);--max-width:1200px}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;color:var(--blue-900);background:linear-gradient(180deg,#f8fbff,#fff);-webkit-font-smoothing:antialiased}
-    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:28px 0}
-    header{display:flex;align-items:center;justify-content:space-between}
-    nav a{margin-left:12px;text-decoration:none;color:var(--blue-900)}
-    h1{font-size:30px} .muted{color:var(--muted)}
-    .stats{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
-    .stat{background:#fff;border-radius:12px;padding:12px 16px;box-shadow:0 6px 20px rgba(5,30,66,0.03);min-width:160px}
-    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
-    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-    .card{padding:14px;border-radius:12px;background:#fff;border:1px solid rgba(3,43,87,0.04);box-shadow:0 8px 24px rgba(10,37,77,0.04)}
-    @media (max-width:980px){.process{grid-template-columns:repeat(2,1fr)}.case-grid{grid-template-columns:repeat(2,1fr)}nav{display:none}}
-    @media (max-width:640px){.case-grid{grid-template-columns:1fr}}
+    .page-hero {
+      background: linear-gradient(160deg, #06111f 0%, #0c1e35 60%, #0d2848 100%);
+      padding: 90px 0 80px; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; bottom:-200px; right:-100px; width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle, rgba(26,110,245,0.1), transparent 65%); pointer-events:none;
+    }
+    .page-hero h1 { color:#fff; margin-bottom:16px; }
+    .page-hero .lead { color:rgba(255,255,255,0.6); max-width:54ch; }
+
+    /* Metrics bar */
+    .metrics-bar { background:var(--blue); padding:40px 0; }
+    .metrics-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center; }
+    .metrics-grid .num { font-family:'Syne',sans-serif; font-size:38px; font-weight:800; color:#fff; }
+    .metrics-grid .lbl { font-size:14px; color:rgba(255,255,255,0.65); margin-top:4px; }
+
+    /* Difference cards */
+    .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+    .diff-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:28px;
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .diff-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-blue); }
+    .diff-icon { width:52px; height:52px; border-radius:14px; background:var(--blue-glow); border:1px solid var(--border-blue); display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:16px; }
+    .diff-card h3 { font-size:18px; margin-bottom:10px; }
+    .diff-card p { font-size:14px; color:var(--muted); line-height:1.65; }
+
+    /* Process */
+    .process-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:40px; position:relative; }
+    .process-row::before {
+      content:''; position:absolute; top:22px; left:10%; right:10%; height:1px;
+      background:linear-gradient(90deg, transparent, var(--border-blue) 20%, var(--border-blue) 80%, transparent);
+      pointer-events:none; z-index:0;
+    }
+    .proc-step {
+      text-align:center; position:relative; z-index:1;
+    }
+    .proc-num {
+      width:44px; height:44px; border-radius:12px; margin:0 auto 12px;
+      background:var(--blue); color:#fff; font-family:'Syne',sans-serif; font-weight:700; font-size:16px;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow-blue);
+    }
+    .proc-step h4 { font-size:14px; margin-bottom:4px; }
+    .proc-step .dur { font-size:12px; color:var(--muted); }
+
+    /* Case studies */
+    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+    .case-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); overflow:hidden;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .case-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .case-header {
+      background:linear-gradient(135deg,#06111f,#0c1e35);
+      padding:24px; display:flex; align-items:center; gap:14px;
+    }
+    .case-emoji { font-size:32px; }
+    .case-header h3 { color:#fff; font-size:16px; }
+    .case-header .badge { margin-top:4px; }
+    .case-body { padding:20px; }
+    .case-result {
+      background:var(--surface-2); border-radius:10px; padding:14px;
+      font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--blue);
+      margin-bottom:12px; text-align:center;
+    }
+    .case-result .sub { font-family:'DM Sans',sans-serif; font-size:12px; color:var(--muted); font-weight:400; }
+    .case-body p { font-size:14px; color:var(--muted); line-height:1.65; margin-bottom:12px; }
+    .case-stack { display:flex; flex-wrap:wrap; gap:6px; }
+
+    /* Comparison table */
+    .comp-table { width:100%; border-collapse:collapse; margin-top:24px; }
+    .comp-table th { padding:14px 20px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); background:var(--surface-2); text-align:left; }
+    .comp-table th:not(:first-child) { text-align:center; }
+    .comp-table td { padding:16px 20px; border-top:1px solid var(--border); font-size:14px; }
+    .comp-table td:first-child { font-weight:500; color:var(--ink); }
+    .comp-table td:not(:first-child) { text-align:center; }
+    .comp-table tr:hover td { background:var(--surface-2); }
+    .yes { color:#059980; font-weight:700; }
+    .no { color:#e05a5a; }
+    .maybe { color:#f59e0b; }
+    .comp-vstack-col { background:rgba(26,110,245,0.04); }
+
+    /* Testimonials in why-us */
+    .testi-full { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+
+    @media(max-width:980px) {
+      .metrics-grid { grid-template-columns:repeat(2,1fr); }
+      .diff-grid { grid-template-columns:repeat(2,1fr); }
+      .process-row { grid-template-columns:repeat(3,1fr); }
+      .process-row::before { display:none; }
+      .case-grid { grid-template-columns:repeat(2,1fr); }
+      .testi-full { grid-template-columns:1fr; }
+    }
+    @media(max-width:640px) {
+      .diff-grid, .case-grid { grid-template-columns:1fr; }
+      .process-row { grid-template-columns:repeat(2,1fr); }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="index.html" style="font-weight:800;text-decoration:none;color:var(--blue-900)">VStack</a>
-      <nav aria-label="Primary Navigation">
-        <a href="about.html">About</a>
-        <a href="why-us.html">Why Us</a>
-        <a href="team.html">Team</a>
-        <a href="products.html">Services</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <h1>Why leading teams trust VStack for mission-critical automation</h1>
-      <p class="muted">Transparent process, engineering excellence and practical outcomes with measurable ROI.</p>
-
-      <div class="stats" aria-hidden="false">
-        <div class="stat"><strong>50+</strong><div class="muted">Projects Delivered</div></div>
-        <div class="stat"><strong>99.9%</strong><div class="muted">Uptime SLA</div></div>
-        <div class="stat"><strong>24hr</strong><div class="muted">Response time</div></div>
-        <div class="stat"><strong>4.9 / 5</strong><div class="muted">Client rating</div></div>
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="brand">
+          <div class="brand-mark">V</div>
+          <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
+        </a>
+        <nav class="main-nav" aria-label="Primary">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html" class="active">Why Us</a>
+          <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Book a Free Call →</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
+        <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
+      </div>
+    </div>
+  </header>
 
-      <section style="margin-top:20px">
-        <h2>The VStack difference</h2>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <div class="card" style="flex:1;min-width:280px">
-            <h3>Engineering excellence</h3>
-            <p class="muted">Senior engineers with a strong track record in scalable systems, code quality and architecture reviews.</p>
-          </div>
-          <div class="card" style="flex:1;min-width:280px">
-            <h3>Transparent process</h3>
-            <p class="muted">A five-phase approach with regular demos, CI/CD and clear milestones.</p>
-          </div>
-          <div class="card" style="flex:1;min-width:280px">
-            <h3>Risk mitigation</h3>
-            <p class="muted">Shared repositories, runbooks, knowledge transfer and post-launch warranty.</p>
-          </div>
-        </div>
-      </section>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Why VStack</div>
+      <h1 style="margin-top:16px">Why leading teams trust VStack<br>for mission-critical automation</h1>
+      <p class="lead">Transparent process, engineering excellence, and practical outcomes with measurable ROI. No buzzwords, no fluff — just results.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+        <a href="index.html#contact" class="btn btn-primary btn-lg">Book a Free Strategy Call →</a>
+        <a href="#case-studies" class="btn btn-ghost btn-lg">See Case Studies</a>
+      </div>
+    </div>
+  </section>
 
-      <section style="margin-top:18px">
-        <h3>Our 5-phase approach</h3>
-        <div class="process" role="list">
-          <div class="card">Discovery<br/><span class="muted">1-2 weeks</span></div>
-          <div class="card">Architecture<br/><span class="muted">1 week</span></div>
-          <div class="card">Development<br/><span class="muted">4-8 weeks</span></div>
-          <div class="card">Testing & QA<br/><span class="muted">1-2 weeks</span></div>
-          <div class="card">Launch & Support<br/><span class="muted">Ongoing</span></div>
-        </div>
-      </section>
-
-      <section style="margin-top:18px">
-        <h3>Case study highlights</h3>
-        <div class="case-grid">
-          <div class="card">
-            <strong>E-commerce automation</strong>
-            <p class="muted">10k orders/day → 95% reduction in processing time, zero errors. Tech: Node.js · Postgres · AWS Lambda</p>
-          </div>
-          <div class="card">
-            <strong>Data pipeline optimization</strong>
-            <p class="muted">SaaS analytics — rebuilt ETL → 99.9% pipeline reliability. Tech: Python · Airflow · Redshift</p>
-          </div>
-          <div class="card">
-            <strong>Mobile field app</strong>
-            <p class="muted">200+ field workers → offline-first app increased productivity by 40%. Tech: React Native · Node.js</p>
-          </div>
-        </div>
-      </section>
-
-      <section style="margin-top:18px">
-        <h3>Comparison</h3>
-        <div class="card" style="margin-top:8px">
-          <table style="width:100%;border-collapse:collapse">
-            <thead><tr><th style="text-align:left;padding:8px">Feature</th><th style="text-align:left;padding:8px">VStack</th><th style="text-align:left;padding:8px">Agencies</th><th style="text-align:left;padding:8px">Freelancers</th></tr></thead>
-            <tbody>
-              <tr><td style="padding:8px">Custom solutions</td><td style="padding:8px">✅</td><td style="padding:8px">⚠️</td><td style="padding:8px">✅</td></tr>
-              <tr><td style="padding:8px">24/7 support</td><td style="padding:8px">✅</td><td style="padding:8px">💰 extra</td><td style="padding:8px">❌</td></tr>
-              <tr><td style="padding:8px">Code ownership</td><td style="padding:8px">✅</td><td style="padding:8px">⚠️</td><td style="padding:8px">✅</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-
-    <footer style="margin-top:22px;color:var(--muted);border-top:1px solid rgba(3,43,87,0.04);padding-top:12px;display:flex;justify-content:space-between">
-      <div>© VStack — Bhubaneswar</div>
-      <div><a href="mailto:j.r.badatya@gmail.com" style="text-decoration:none;color:var(--muted)">j.r.badatya@gmail.com</a></div>
-    </footer>
+  <!-- METRICS BAR -->
+  <div class="metrics-bar">
+    <div class="container">
+      <div class="metrics-grid">
+        <div><div class="num">50+</div><div class="lbl">Projects Delivered</div></div>
+        <div><div class="num">99.9%</div><div class="lbl">Uptime SLA</div></div>
+        <div><div class="num">4.9 / 5</div><div class="lbl">Client Rating</div></div>
+        <div><div class="num">&lt; 24hr</div><div class="lbl">Incident Response</div></div>
+      </div>
+    </div>
   </div>
+
+  <!-- THE DIFFERENCE -->
+  <section>
+    <div class="container">
+      <div class="section-label">The VStack Difference</div>
+      <h2 style="margin-top:14px">Why teams choose us over<br>agencies and freelancers</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-icon">🏗️</div>
+          <h3>Engineering Excellence</h3>
+          <p>Senior engineers with a proven track record in scalable systems, clean code, and architecture that doesn't need rework in 12 months.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🪟</div>
+          <h3>Transparent Process</h3>
+          <p>Our 5-phase approach with weekly demos, shared repositories, clear milestones, and honest communication at every step.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🛡️</div>
+          <h3>Risk Mitigation</h3>
+          <p>Shared repositories, comprehensive runbooks, knowledge transfer sessions, and a post-launch warranty on everything we deliver.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📞</div>
+          <h3>Direct Engineer Access</h3>
+          <p>You talk directly to the engineers building your system — no account manager layers, ticket queues, or delayed communication.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📦</div>
+          <h3>Full Code Ownership</h3>
+          <p>All code, infrastructure, and documentation belongs to you from day one. No proprietary lock-in, no licensing surprises.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🔐</div>
+          <h3>Security & Compliance</h3>
+          <p>Security baked into pipelines from the start. OWASP-compliant, with regular security reviews and data protection built in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="background:var(--surface-2)">
+    <div class="container">
+      <div class="section-label">Our Process</div>
+      <h2 style="margin-top:14px">How we deliver — every time</h2>
+      <p class="lead" style="max-width:52ch;margin-top:10px">A battle-tested 5-phase approach that keeps you informed and in control throughout.</p>
+      <div class="process-row">
+        <div class="proc-step">
+          <div class="proc-num">1</div>
+          <h4>Discovery</h4>
+          <div class="dur">1 – 2 weeks</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Requirements, stakeholder interviews, and technical assessment</p>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">2</div>
+          <h4>Architecture</h4>
+          <div class="dur">1 week</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">System design, tech decisions, milestone breakdown, and sign-off</p>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">3</div>
+          <h4>Development</h4>
+          <div class="dur">4 – 8 weeks</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Iterative build with weekly demos and CI/CD from day one</p>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">4</div>
+          <h4>Testing & QA</h4>
+          <div class="dur">1 – 2 weeks</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Automated tests, security review, load testing, and UAT</p>
+        </div>
+        <div class="proc-step">
+          <div class="proc-num">5</div>
+          <h4>Launch & Support</h4>
+          <div class="dur">Ongoing</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Production deployment, monitoring setup, and knowledge transfer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies">
+    <div class="container">
+      <div class="section-label">Case Studies</div>
+      <h2 style="margin-top:14px">Measurable results for real businesses</h2>
+      <p class="lead" style="max-width:52ch;margin-top:10px">Three examples of the outcomes we've delivered for clients.</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-emoji">🏭</div>
+            <div>
+              <h3>E-Commerce Automation</h3>
+              <span class="badge badge-green">Completed</span>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-result">95% <div class="sub">Reduction in processing time</div></div>
+            <p>10,000 orders per day with zero manual intervention. Order ingestion, warehouse allocation, billing, and compensation flows fully automated. ETL failure rate dropped from nightly to zero.</p>
+            <div class="case-stack">
+              <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">AWS Lambda</span><span class="tag">Temporal</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-emoji">📊</div>
+            <div>
+              <h3>SaaS Data Pipeline</h3>
+              <span class="badge badge-green">Completed</span>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-result">99.9% <div class="sub">Pipeline reliability achieved</div></div>
+            <p>Rebuilt a brittle ETL pipeline feeding ML models and BI dashboards. Reporting lag reduced from 8 hours to under 30 minutes. Data quality monitoring introduced with automated alerting.</p>
+            <div class="case-stack">
+              <span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">Redshift</span><span class="tag">dbt</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-emoji">📱</div>
+            <div>
+              <h3>Mobile Field App</h3>
+              <span class="badge badge-green">Completed</span>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-result">40% <div class="sub">Productivity increase</div></div>
+            <p>Cross-platform app for 200+ field workers with offline-first sync, quick forms, and push notifications. Replaced paper-based processes entirely within 3 months of launch.</p>
+            <div class="case-stack">
+              <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Push Notifications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section style="background:var(--surface-2)">
+    <div class="container">
+      <div class="section-label">Comparison</div>
+      <h2 style="margin-top:14px">How we stack up</h2>
+      <div class="card" style="padding:0;overflow:hidden;margin-top:32px">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="comp-vstack-col">VStack</th>
+              <th>Typical Agencies</th>
+              <th>Freelancers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Custom architecture (not templates)</td>
+              <td class="yes comp-vstack-col">✓ Always</td>
+              <td class="maybe">Templates first</td>
+              <td class="maybe">Varies</td>
+            </tr>
+            <tr>
+              <td>24/7 monitoring & support</td>
+              <td class="yes comp-vstack-col">✓ Included</td>
+              <td class="maybe">Charged extra</td>
+              <td class="no">✗ Rarely</td>
+            </tr>
+            <tr>
+              <td>Full code ownership</td>
+              <td class="yes comp-vstack-col">✓ Always</td>
+              <td class="maybe">Often locked</td>
+              <td class="yes">✓ Usually</td>
+            </tr>
+            <tr>
+              <td>Direct engineer access</td>
+              <td class="yes comp-vstack-col">✓ Always</td>
+              <td class="no">✗ Account mgr</td>
+              <td class="yes">✓ Yes</td>
+            </tr>
+            <tr>
+              <td>Post-launch support SLA</td>
+              <td class="yes comp-vstack-col">✓ Included</td>
+              <td class="maybe">New contract</td>
+              <td class="no">✗ Rarely</td>
+            </tr>
+            <tr>
+              <td>Transparent pricing</td>
+              <td class="yes comp-vstack-col">✓ Always</td>
+              <td class="no">✗ Change orders</td>
+              <td class="maybe">Varies</td>
+            </tr>
+            <tr>
+              <td>Security baked in</td>
+              <td class="yes comp-vstack-col">✓ Always</td>
+              <td class="maybe">Sometimes</td>
+              <td class="no">✗ Rarely</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="section-label">Client Feedback</div>
+      <h2 style="margin-top:14px">What our clients say</h2>
+      <div class="testi-full">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"VStack rebuilt our order ingestion and data cleaning pipelines. Within 6 weeks our nightly ETL failures dropped to zero and reporting lag reduced from 8 hours to under 30 minutes. The team was communicative and honest throughout."</p>
+          <div class="testimonial-author">
+            <div class="avatar">SP</div>
+            <div class="author-info">
+              <div class="name">Santosh Pattnaik</div>
+              <div class="role">CTO — Pharma Life, Bhubaneswar</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Their automation for our billing and notifications removed a lot of manual work. Dashboards and runbooks helped our operations team onboard quickly. They delivered on time and within budget."</p>
+          <div class="testimonial-author">
+            <div class="avatar">SN</div>
+            <div class="author-info">
+              <div class="name">Siba Prasad Nayak</div>
+              <div class="role">Operations Head, Bhubaneswar</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The mobile field app became the backbone for our site supervisors. Offline sync and quick forms saved hours each week — our team adopted it immediately and we saw results within the first month."</p>
+          <div class="testimonial-author">
+            <div class="avatar">SH</div>
+            <div class="author-info">
+              <div class="name">Samsaul Hoda</div>
+              <div class="role">Founder — AK Construction, Bhubaneswar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--blue);padding:80px 0;text-align:center;">
+    <div class="container">
+      <h2 style="color:#fff;margin-bottom:12px">Ready to see the difference?</h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:46ch;margin:0 auto 32px">Book a free 30-minute strategy call. We'll listen to your challenge, ask the right questions, and give you an honest assessment — no obligation.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="index.html#contact" class="btn btn-lg" style="background:#fff;color:var(--blue);font-weight:700">Book a Free Strategy Call →</a>
+        <a href="products.html" class="btn btn-ghost btn-lg">View Services & Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="color:inherit;text-decoration:none">
+            <div class="brand-mark">V</div>
+            <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
+          </a>
+          <p class="footer-desc">Enterprise-grade automation and software engineering — shipped faster.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
+        <div class="footer-col"><h5>Services</h5><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
+        <div class="footer-col"><h5>Contact</h5><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 VStack — Bhubaneswar, Odisha, India</span>
+        <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { const open = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', open); });
+
+    // Animate numbers on scroll
+    const nums = document.querySelectorAll('.metrics-grid .num');
+    const seen = new Set();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting && !seen.has(en.target)) {
+          seen.add(en.target);
+          en.target.style.animation = 'none';
+          en.target.offsetHeight;
+          en.target.style.animation = 'fadeInUp .5s ease forwards';
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(n => io.observe(n));
+  </script>
+  <style>
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+  </style>
 </body>
 </html>
