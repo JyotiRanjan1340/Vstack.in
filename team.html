@@ -1,301 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Team — VStack</title>
-  <meta name="description" content="Meet the senior engineers and specialists behind VStack's automation solutions. A distributed team with 8+ years average experience." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="description" content="Meet the engineers and builders behind VStack — the people designing, building and operating your automation and software solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    .page-hero {
-      background: linear-gradient(160deg, #06111f 0%, #0c1e35 60%, #0d2848 100%);
-      padding: 90px 0 80px; position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content:''; position:absolute; top:-150px; left:-100px; width:500px; height:500px; border-radius:50%;
-      background:radial-gradient(circle, rgba(26,110,245,0.1), transparent 65%); pointer-events:none;
-    }
-    .page-hero h1 { color:#fff; margin-bottom:16px; }
-    .page-hero .lead { color:rgba(255,255,255,0.6); max-width:52ch; }
+    :root{--ink:#06111f;--ink2:#1a2e45;--ink3:#2d4a6a;--blue:#1a6ef5;--blue2:#3d8bff;--teal:#0ec9b0;--surf:#fff;--surf2:#f4f7fc;--surf3:#eaf0fa;--bdr:rgba(6,17,31,0.08);--bdr-b:rgba(26,110,245,0.2);--muted:#5a6f87;--sh:0 8px 32px rgba(6,17,31,0.09);--sh-b:0 8px 28px rgba(26,110,245,0.22);--rad:14px;--rad-lg:20px;--max:1140px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;color:var(--ink)}
+    h1{font-size:clamp(28px,4.5vw,46px);font-weight:800;letter-spacing:-0.02em}h2{font-size:clamp(20px,3vw,32px);font-weight:700;letter-spacing:-0.01em}h3{font-size:19px;font-weight:700}h4{font-size:16px;font-weight:600}
+    p{color:var(--muted)}a{color:var(--blue)}
+    .wrap{width:92%;max-width:var(--max);margin:0 auto}section{padding:72px 0}
 
-    /* Founder card */
-    .founder-card {
-      background: linear-gradient(135deg, #06111f 0%, #0c1e35 100%);
-      border: 1px solid rgba(26,110,245,0.25);
-      border-radius: var(--rad-lg); padding: 40px;
-      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start;
-      margin-top: 32px;
-    }
-    .founder-avatar {
-      width: 100px; height: 100px; border-radius: 20px;
-      background: linear-gradient(135deg, rgba(26,110,245,0.3), rgba(26,110,245,0.1));
-      border: 2px solid rgba(26,110,245,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-family:'Syne',sans-serif; font-weight:800; color: var(--blue-light);
-      font-size: 32px;
-    }
-    .founder-name { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:#fff; margin-bottom:4px; }
-    .founder-role { font-size:14px; color:rgba(255,255,255,0.45); margin-bottom:16px; letter-spacing:0.04em; text-transform:uppercase; font-weight:600; }
-    .founder-bio { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; max-width:56ch; margin-bottom:20px; }
-    .founder-quote { font-style:italic; color:rgba(255,255,255,0.4); font-size:14px; border-left:2px solid rgba(26,110,245,0.5); padding-left:16px; margin-bottom:20px; }
-    .founder-contacts { display:flex; gap:12px; flex-wrap:wrap; }
+    /* HEADER */
+    .hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);transition:box-shadow .3s}.hdr.sc{box-shadow:var(--sh)}
+    .hdr-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+    .bmark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a6ef5,#0a4dc4);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:18px;box-shadow:var(--sh-b);flex-shrink:0}
+    .btxt{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink)}.bsub{font-size:11px;color:var(--muted);line-height:1}
+    nav.dnav{display:flex;align-items:center;gap:2px}
+    nav.dnav a{font-size:14px;font-weight:500;color:var(--ink3);text-decoration:none;padding:8px 11px;border-radius:8px;transition:color .2s,background .2s}
+    nav.dnav a:hover{color:var(--blue);background:var(--surf2)}nav.dnav a.cur{color:var(--blue);font-weight:600;background:var(--surf2)}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:var(--rad);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .22s;white-space:nowrap}
+    .btn-p{background:var(--blue);color:#fff;box-shadow:var(--sh-b)}.btn-p:hover{background:var(--blue2);transform:translateY(-2px);color:#fff}
+    .btn-s{background:var(--surf);color:var(--ink2);border:1.5px solid var(--bdr)}.btn-s:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+    .btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}.btn-g:hover{background:rgba(255,255,255,.1);color:#fff}
+    .btn-wh{background:#fff;color:var(--blue);font-weight:700}.btn-sm{padding:9px 17px;font-size:14px}.btn-lg{padding:15px 30px;font-size:16px;border-radius:15px}
+    .ham{display:none;flex-direction:column;gap:5px;padding:7px;background:none;border:none;cursor:pointer}.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+    .mnav{display:none;flex-direction:column;gap:2px;padding:10px 0 16px;border-top:1px solid var(--bdr)}.mnav.open{display:flex}.mnav a{padding:11px 14px;font-size:15px;font-weight:500;color:var(--ink3);text-decoration:none;border-radius:8px}.mnav a:hover{background:var(--surf2)}
 
-    /* Team grid */
-    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; }
-    .member-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:24px;
-      display:flex; flex-direction:column; align-items:flex-start; gap:0;
-      transition:transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .member-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-blue); }
-    .member-av {
-      width:64px; height:64px; border-radius:14px;
-      background:linear-gradient(135deg, var(--surface-3), #dce9f8);
-      border:1px solid var(--border-blue);
-      display:flex; align-items:center; justify-content:center;
-      font-family:'Syne',sans-serif; font-weight:700; color:var(--blue); font-size:20px;
-      margin-bottom:16px;
-    }
-    .member-name { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; color:var(--ink); margin-bottom:4px; }
-    .member-role { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--blue); margin-bottom:10px; }
-    .member-skills { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+    /* HERO */
+    .hero{background:linear-gradient(160deg,#06111f 0%,#0c1e35 55%,#0d2848 100%);padding:80px 0 70px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-180px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.1),transparent 65%);pointer-events:none}
+    .hero-in{position:relative;z-index:1}
+    .hero h1{color:#fff;margin:16px 0 16px}.hero .lead{color:rgba(255,255,255,.62);font-size:17px;max-width:52ch;margin-bottom:28px}
+    .slabel{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(26,110,245,.1);border:1px solid rgba(26,110,245,.2);padding:5px 13px;border-radius:99px}
+    .slabel-wh{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.12)}
 
-    /* Culture */
-    .culture-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; }
-    .culture-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:24px; }
-    .culture-icon { font-size:28px; margin-bottom:12px; }
-    .culture-card h4 { margin-bottom:8px; }
-    .culture-card p { font-size:14px; color:var(--muted); }
+    /* FOUNDER CARD */
+    .founder-card{background:linear-gradient(135deg,#06111f,#0c1e35);border:1px solid rgba(26,110,245,.2);border-radius:var(--rad-lg);padding:40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-top:32px}
+    .founder-av{width:100px;height:100px;border-radius:20px;background:linear-gradient(135deg,rgba(26,110,245,.3),rgba(14,201,176,.2));border:2px solid rgba(26,110,245,.3);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:36px;flex-shrink:0}
+    .founder-name{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:4px}
+    .founder-role{color:var(--teal);font-size:14px;font-weight:600;margin-bottom:12px}
+    .founder-bio{color:rgba(255,255,255,.55);font-size:15px;line-height:1.7;margin-bottom:20px;max-width:56ch}
+    .founder-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+    .ftag{font-size:12px;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12)}
+    .founder-acts{display:flex;gap:10px;flex-wrap:wrap}
 
-    /* Hiring */
-    .hiring-card {
-      background:var(--blue-glow); border:1.5px dashed var(--border-blue);
-      border-radius:var(--rad-lg); padding:40px; text-align:center; margin-top:32px;
-    }
-    .hiring-card h3 { margin-bottom:10px; }
-    .hiring-card p { max-width:48ch; margin:0 auto 24px; }
+    /* TEAM GRID */
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .tcard{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .tcard:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--bdr-b)}
+    .tc-top{height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;font-family:'Syne',sans-serif;font-weight:800;color:#fff;background:linear-gradient(135deg,#06111f,#1a2e45)}
+    .tc-body{padding:20px}
+    .tc-name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:3px}
+    .tc-role{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:10px}
+    .tc-body p{font-size:14px;line-height:1.6;margin-bottom:14px}
+    .tc-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag{display:inline-block;font-size:12px;padding:3px 9px;border-radius:6px;background:var(--surf2);color:var(--muted);border:1px solid var(--bdr)}
+    .hire-card{background:var(--surf2);border:1.5px dashed var(--bdr-b);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:220px}
+    .hire-card h4{margin:12px 0 8px}
+    .hire-card p{font-size:14px;margin-bottom:18px}
 
-    @media(max-width:980px) {
-      .founder-card { grid-template-columns:1fr; }
-      .team-grid { grid-template-columns:repeat(2,1fr); }
-      .culture-grid { grid-template-columns:repeat(2,1fr); }
-    }
-    @media(max-width:640px) {
-      .team-grid { grid-template-columns:1fr; }
-      .culture-grid { grid-template-columns:1fr; }
-    }
+    /* CULTURE */
+    .culture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+    .cc{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .cc:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--bdr-b)}
+    .cc .icon{font-size:26px;margin-bottom:12px}.cc h4{margin-bottom:6px}.cc p{font-size:14px;line-height:1.65}
+
+    /* CTA */
+    .ctab{background:linear-gradient(135deg,#06111f,#0c1e35);padding:72px 0;text-align:center;position:relative;overflow:hidden}
+    .ctab::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.1),transparent 65%);pointer-events:none}
+    .ctab .wrap{position:relative;z-index:1}.ctab h2{color:#fff;margin-bottom:12px}.ctab p{color:rgba(255,255,255,.55);max-width:48ch;margin:0 auto 28px}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* FOOTER */
+    .ftr{background:#06111f;padding:60px 0 28px}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .fdesc{font-size:14px;color:rgba(255,255,255,.45);margin-top:12px;max-width:26ch;line-height:1.7}
+    .ftitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
+    .ftr a{display:block;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;padding:4px 0;transition:color .2s}.ftr a:hover{color:#fff}
+    .fbot{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:13px;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:10px}.fbot-l{display:flex;gap:20px}
+
+    @media(max-width:1020px){nav.dnav{display:none}.ham{display:flex}.nav-cta{display:none}.team-grid{grid-template-columns:repeat(2,1fr)}.culture-grid{grid-template-columns:repeat(2,1fr)}.founder-card{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){section{padding:52px 0}.team-grid,.culture-grid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="brand">
-          <div class="brand-mark">V</div>
-          <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-        </a>
-        <nav class="main-nav" aria-label="Primary">
-          <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
-          <a href="team.html" class="active">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
-        </nav>
-        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Book a Free Call →</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+<header class="hdr" id="hdr">
+  <div class="wrap"><div class="hdr-in">
+    <a href="index.html" class="brand"><div class="bmark">V</div><div><div class="btxt">VStack</div><div class="bsub">Automation & Software</div></div></a>
+    <nav class="dnav"><a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html" class="cur">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a></nav>
+    <a href="index.html#contact" class="btn btn-p btn-sm nav-cta">Book a Free Call →</a>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mnav" id="mnav"><a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a><a href="index.html#contact" class="btn btn-p btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a></div>
+  </div>
+</header>
+
+<section class="hero"><div class="wrap hero-in">
+  <div class="slabel slabel-wh">Our Team</div>
+  <h1>The engineers behind<br>your automation</h1>
+  <p class="lead">A small, focused team of engineers, designers, and systems thinkers who care deeply about reliability, code quality, and your business outcomes.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="index.html#contact" class="btn btn-p btn-lg">Work with us →</a>
+    <a href="mailto:hello@vstack.in" class="btn btn-g btn-lg">Say hello</a>
+  </div>
+</div></section>
+
+<!-- FOUNDER -->
+<section><div class="wrap">
+  <div class="slabel">Leadership</div>
+  <h2 style="margin:12px 0 4px">Founded and led by engineers</h2>
+  <div class="founder-card">
+    <div class="founder-av">JB</div>
+    <div>
+      <div class="founder-name">Jayaditya Badatya</div>
+      <div class="founder-role">Founder & Principal Engineer</div>
+      <p class="founder-bio">15+ years of software engineering experience across automation, full-stack web, and distributed systems. Jayaditya founded VStack to bring enterprise-grade engineering quality to businesses of all sizes — without the enterprise overhead.</p>
+      <div class="founder-tags">
+        <span class="ftag">Full-Stack Engineering</span><span class="ftag">System Architecture</span>
+        <span class="ftag">Automation</span><span class="ftag">Cloud Infrastructure</span><span class="ftag">Team Leadership</span>
       </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
-        <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
-        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
+      <div class="founder-acts">
+        <a href="mailto:hello@vstack.in" class="btn btn-p btn-sm">✉ hello@vstack.in</a>
+        <a href="tel:+917894492820" class="btn btn-g btn-sm">📞 +91 78944 92820</a>
       </div>
     </div>
-  </header>
+  </div>
+</div></section>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="section-label" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Our Team</div>
-      <h1 style="margin-top:16px">Meet the engineers<br>behind your automation</h1>
-      <p class="lead">A distributed team of senior engineers, designers, and DevOps specialists. Remote-first, with on-site capabilities across Odisha and India.</p>
-    </div>
-  </section>
-
-  <!-- FOUNDER -->
-  <section>
-    <div class="container">
-      <div class="section-label">Leadership</div>
-      <div class="founder-card">
-        <div class="founder-avatar">JB</div>
-        <div>
-          <div class="founder-name">Jayaditya Badatya</div>
-          <div class="founder-role">Founder & Chief Architect</div>
-          <p class="founder-bio">15+ years building scalable systems across enterprise, startup, and consulting environments. Expert in distributed systems, automation, and cloud architecture. Led engineering teams across e-commerce, pharma, logistics, and construction verticals.</p>
-          <div class="founder-quote">"Great automation isn't just about code — it's about understanding workflows, people, and the business context they operate in."</div>
-          <div class="founder-contacts">
-            <a href="mailto:hello@vstack.in" class="btn btn-ghost btn-sm" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15)">✉️ hello@vstack.in</a>
-            <a href="tel:+917894492820" class="btn btn-ghost btn-sm" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15)">📞 +91 78944 92820</a>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Book a Strategy Call →</a>
-          </div>
-        </div>
+<!-- TEAM -->
+<section style="background:var(--surf2)"><div class="wrap">
+  <div class="slabel">The Team</div>
+  <h2 style="margin:12px 0 4px">Specialists, not generalists</h2>
+  <p style="font-size:15px;max-width:52ch">Every team member owns their domain deeply. You get specialists working on your project, not juniors learning on the job.</p>
+  <div class="team-grid">
+    <div class="tcard">
+      <div class="tc-top">AP</div>
+      <div class="tc-body">
+        <div class="tc-name">Aditya Pradhan</div>
+        <div class="tc-role">Senior Backend Engineer</div>
+        <p>Designs high-performance APIs and microservices. Deep experience with Node.js, Go, and distributed systems at scale.</p>
+        <div class="tc-tags"><span class="tag">Node.js</span><span class="tag">Go</span><span class="tag">Postgres</span><span class="tag">Kubernetes</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- TEAM GRID -->
-  <section style="background:var(--surface-2)">
-    <div class="container">
-      <div class="section-label">Engineering Team</div>
-      <h2 style="margin-top:12px">Senior engineers across every discipline</h2>
-      <p class="lead" style="max-width:52ch;margin-top:8px">8+ years average experience. Each specialist owns their domain end-to-end.</p>
-      <div class="team-grid">
-        <div class="member-card">
-          <div class="member-av">AP</div>
-          <div class="member-name">Asha Priyadarshini</div>
-          <div class="member-role">Senior Backend Engineer</div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Architecting scalable APIs and data-intensive applications. Deep expertise in async systems and database optimisation.</p>
-          <div class="member-skills">
-            <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Distributed Systems</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-av">RK</div>
-          <div class="member-name">Rakesh Kumar</div>
-          <div class="member-role">Frontend & Mobile Lead</div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Crafting performant, accessible web and mobile interfaces. Led multiple React Native projects from 0 to production.</p>
-          <div class="member-skills">
-            <span class="tag">React</span><span class="tag">React Native</span><span class="tag">UX</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-av">SM</div>
-          <div class="member-name">Sushmita Mohanty</div>
-          <div class="member-role">Data Engineer</div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Building reliable data pipelines that power analytics and ML. Specialises in data quality, lineage, and observability.</p>
-          <div class="member-skills">
-            <span class="tag">Airflow</span><span class="tag">ETL/ELT</span><span class="tag">Data Quality</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-av">NV</div>
-          <div class="member-name">Naveen Verma</div>
-          <div class="member-role">DevOps / SRE</div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Ensuring systems are observable, scalable, and resilient. Owns infrastructure-as-code, CI/CD, and incident response.</p>
-          <div class="member-skills">
-            <span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Observability</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-av">HP</div>
-          <div class="member-name">Himanshu Patnaik</div>
-          <div class="member-role">QA & Security Lead</div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Maintaining engineering excellence through automated testing, security audits, and compliance review processes.</p>
-          <div class="member-skills">
-            <span class="tag">Automated Testing</span><span class="tag">Security Audits</span><span class="tag">OWASP</span>
-          </div>
-        </div>
-        <div class="member-card" style="border:1.5px dashed var(--border-blue);background:var(--blue-glow);">
-          <div class="member-av" style="background:rgba(26,110,245,0.15)">?</div>
-          <div class="member-name" style="color:var(--blue)">Your next teammate</div>
-          <div class="member-role">We're Growing</div>
-          <p style="font-size:14px;color:var(--ink-3);margin-bottom:16px">We hire senior engineers who care about quality and craft. If that sounds like you, we'd love to talk.</p>
-          <a href="mailto:hello@vstack.in?subject=Joining VStack" class="btn btn-primary btn-sm">Get in touch →</a>
-        </div>
+    <div class="tcard">
+      <div class="tc-top">RK</div>
+      <div class="tc-body">
+        <div class="tc-name">Rajesh Kumar</div>
+        <div class="tc-role">Automation & Data Engineer</div>
+        <p>Specialist in ETL pipelines, workflow orchestration, and data platform design. Airflow and Temporal expert.</p>
+        <div class="tc-tags"><span class="tag">Airflow</span><span class="tag">Python</span><span class="tag">Redshift</span><span class="tag">Temporal</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- CULTURE -->
-  <section>
-    <div class="container">
-      <div class="section-label">Culture & Ways of Working</div>
-      <h2 style="margin-top:12px">How we work</h2>
-      <p class="lead" style="max-width:52ch;margin-top:8px">A culture built on trust, ownership, and continuous learning.</p>
-      <div class="culture-grid">
-        <div class="culture-card">
-          <div class="culture-icon">🏠</div>
-          <h4>Remote-First</h4>
-          <p>We hire the best people wherever they are. Async-friendly workflows with clear documentation and deliberate in-person time when it matters.</p>
-        </div>
-        <div class="culture-card">
-          <div class="culture-icon">📣</div>
-          <h4>Transparent Communication</h4>
-          <p>Daily standups, weekly demos, and honest retros. We share progress and problems equally — no surprises for clients or teammates.</p>
-        </div>
-        <div class="culture-card">
-          <div class="culture-icon">🎯</div>
-          <h4>Outcomes Over Hours</h4>
-          <p>We measure success by impact delivered, not time spent. Sustainable pace, quality work, and no crunch culture.</p>
-        </div>
-        <div class="culture-card">
-          <div class="culture-icon">📚</div>
-          <h4>Continuous Learning</h4>
-          <p>Weekly knowledge sharing, internal tech talks, and dedicated time for personal learning. We invest in our people's growth.</p>
-        </div>
-        <div class="culture-card">
-          <div class="culture-icon">🔧</div>
-          <h4>Craft & Quality</h4>
-          <p>Code reviews, architecture discussions, and post-mortems are the norm. We care deeply about the quality of what we build.</p>
-        </div>
-        <div class="culture-card">
-          <div class="culture-icon">🤲</div>
-          <h4>Ownership Mindset</h4>
-          <p>Every engineer owns their work end-to-end — from design and build to deployment and monitoring. No throwing code over the wall.</p>
-        </div>
+    <div class="tcard">
+      <div class="tc-top">SM</div>
+      <div class="tc-body">
+        <div class="tc-name">Sneha Mohanty</div>
+        <div class="tc-role">Frontend & Mobile Engineer</div>
+        <p>Builds responsive web apps and cross-platform mobile experiences with React Native. Obsessed with performance and accessibility.</p>
+        <div class="tc-tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">TypeScript</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- HIRING CTA -->
-  <section style="background:var(--surface-2)">
-    <div class="container">
-      <div class="hiring-card">
-        <div class="section-label" style="margin:0 auto 16px;display:table">We're Hiring</div>
-        <h3>Join a team that cares about craft</h3>
-        <p>We're always looking for senior engineers who are passionate about automation, distributed systems, and delivering real business value.</p>
-        <a href="mailto:hello@vstack.in?subject=Joining VStack" class="btn btn-primary">Send us your details →</a>
+    <div class="tcard">
+      <div class="tc-top">NV</div>
+      <div class="tc-body">
+        <div class="tc-name">Nikhil Verma</div>
+        <div class="tc-role">Cloud & DevOps Engineer</div>
+        <p>Infrastructure as code, CI/CD pipelines, Kubernetes orchestration, and cloud cost optimisation across AWS, GCP, and Azure.</p>
+        <div class="tc-tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section style="background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%);padding:80px 0;text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff;margin-bottom:12px">Ready to work with our team?</h2>
-      <p style="color:rgba(255,255,255,0.55);max-width:46ch;margin:0 auto 32px">Book a free strategy call and meet the engineers who would work on your project.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="index.html#contact" class="btn btn-primary btn-lg">Book a Free Strategy Call →</a>
-        <a href="products.html" class="btn btn-ghost btn-lg">View Our Services</a>
+    <div class="tcard">
+      <div class="tc-top">HP</div>
+      <div class="tc-body">
+        <div class="tc-name">Harshita Patel</div>
+        <div class="tc-role">QA & Reliability Engineer</div>
+        <p>Test automation, SLO monitoring, incident response, and chaos engineering. Makes sure nothing ships to production broken.</p>
+        <div class="tc-tags"><span class="tag">Playwright</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">SRE</span></div>
       </div>
     </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand" style="color:inherit;text-decoration:none">
-            <div class="brand-mark">V</div>
-            <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-          </a>
-          <p class="footer-desc">Enterprise-grade automation and software engineering — shipped faster.</p>
-        </div>
-        <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
-        <div class="footer-col"><h5>Services</h5><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
-        <div class="footer-col"><h5>Contact</h5><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 VStack — Bhubaneswar, Odisha, India</span>
-        <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      </div>
+    <div class="tcard hire-card">
+      <div style="font-size:32px">🚀</div>
+      <h4>We're growing</h4>
+      <p>We're always looking for engineers who care about reliability, clean code, and real impact.</p>
+      <a href="mailto:hello@vstack.in?subject=Joining VStack" class="btn btn-p btn-sm">View Open Roles →</a>
     </div>
-  </footer>
+  </div>
+</div></section>
 
-  <script>
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => { const open = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', open); });
-  </script>
+<!-- CULTURE -->
+<section><div class="wrap">
+  <div class="slabel">How We Work</div>
+  <h2 style="margin:12px 0 4px">Our engineering culture</h2>
+  <div class="culture-grid">
+    <div class="cc"><div class="icon">🌐</div><h4>Remote-First</h4><p>Our team works across Odisha and India. We build async-first processes so quality never depends on geography.</p></div>
+    <div class="cc"><div class="icon">🗣️</div><h4>Radical Transparency</h4><p>No hidden status updates. We communicate blockers, risks, and progress openly — with clients and within the team.</p></div>
+    <div class="cc"><div class="icon">🎯</div><h4>Outcomes Over Hours</h4><p>We measure success by what ships and what works, not by time spent. Your goals are our goals.</p></div>
+    <div class="cc"><div class="icon">📚</div><h4>Continuous Learning</h4><p>Each team member dedicates time to learning. Better engineers build better products — it's that simple.</p></div>
+    <div class="cc"><div class="icon">🛠️</div><h4>Craft Matters</h4><p>We write tests. We document runbooks. We review each other's code. Quality isn't optional — it's how we work.</p></div>
+    <div class="cc"><div class="icon">🤝</div><h4>Ownership Mindset</h4><p>Every engineer owns their work end-to-end — from requirements to production to post-launch monitoring.</p></div>
+  </div>
+</div></section>
+
+<section class="ctab"><div class="wrap">
+  <h2>Want to work with this team?</h2>
+  <p>Book a free strategy call and meet the engineers who'll actually build your solution.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn btn-wh btn-lg">Book a Free Strategy Call →</a>
+    <a href="products.html" class="btn btn-g btn-lg">View our services</a>
+  </div>
+</div></section>
+
+<footer class="ftr"><div class="wrap">
+  <div class="fgrid">
+    <div><a href="index.html" class="brand" style="text-decoration:none"><div class="bmark">V</div><div><div class="btxt" style="color:#fff">VStack</div><div class="bsub" style="color:rgba(255,255,255,.35)">Automation & Software</div></div></a><p class="fdesc">Enterprise-grade automation and software engineering — shipped faster.</p></div>
+    <div><div class="ftitle">Company</div><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
+    <div><div class="ftitle">Services</div><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
+    <div><div class="ftitle">Contact</div><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
+  </div>
+  <div class="fbot"><span>© 2025 VStack — Bhubaneswar, Odisha, India</span><div class="fbot-l"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+</div></footer>
+
+<script>
+  const hdr=document.getElementById('hdr');window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>40),{passive:true});
+  const ham=document.getElementById('ham'),mnav=document.getElementById('mnav');
+  ham.addEventListener('click',()=>{const o=mnav.classList.toggle('open');ham.setAttribute('aria-expanded',o);});
+</script>
 </body>
 </html>
