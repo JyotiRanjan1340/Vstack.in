@@ -4,388 +4,234 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Services & Pricing — VStack</title>
-  <meta name="description" content="VStack's comprehensive services: custom software, automation, mobile apps, data engineering, managed operations. Transparent pricing starting from ₹1,00,000." />
+  <meta name="description" content="VStack services: custom software, automation, mobile apps, data engineering, managed operations. Transparent pricing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    .page-hero {
-      background: linear-gradient(160deg, #06111f 0%, #0c1e35 60%, #0d2848 100%);
-      padding: 90px 0 80px; overflow: hidden; position: relative;
-    }
-    .page-hero::before {
-      content:''; position:absolute; top:-150px; right:-100px; width:500px; height:500px; border-radius:50%;
-      background:radial-gradient(circle, rgba(26,110,245,0.12), transparent 65%); pointer-events:none;
-    }
-    .page-hero h1 { color:#fff; margin-bottom:16px; }
-    .page-hero .lead { color:rgba(255,255,255,0.6); max-width:54ch; }
-
-    /* Service sections */
-    .service-section { padding: 60px 0; }
-    .service-section:nth-child(even) { background: var(--surface-2); }
-
-    .service-section h2 { margin-bottom: 8px; }
-    .service-section .sub { color: var(--muted); margin-bottom: 32px; font-size: 15px; }
-
-    /* Service cards */
-    .svc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-    .svc-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:28px;
-      display:flex; flex-direction:column; gap:0;
-      transition:transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .svc-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-blue); }
-    .svc-card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; }
-    .svc-card h3 { font-size:17px; margin-bottom:8px; }
-    .svc-card p { font-size:14px; color:var(--muted); flex:1; line-height:1.65; }
-    .svc-price { margin-top:16px; padding-top:16px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
-    .price-tag { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; color:var(--ink); }
-    .price-sub { font-size:12px; color:var(--muted); margin-top:2px; }
-
-    /* Packages */
-    .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
-    .pkg-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad-lg); padding:32px;
-      display:flex; flex-direction:column;
-      transition:transform .25s, box-shadow .25s;
-    }
-    .pkg-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
-    .pkg-card.featured {
-      background:linear-gradient(135deg,#06111f,#0c1e35);
-      border-color:rgba(26,110,245,0.35);
-      position:relative;
-    }
-    .pkg-card.featured h3, .pkg-card.featured p, .pkg-card.featured li { color:rgba(255,255,255,0.75); }
-    .pkg-card.featured h3 { color:#fff; }
-    .pkg-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--blue); color:#fff; font-size:12px; font-weight:700; padding:4px 14px; border-radius:99px; white-space:nowrap; }
-    .pkg-price { font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:var(--ink); margin:16px 0 8px; }
-    .pkg-card.featured .pkg-price { color:#fff; }
-    .pkg-period { font-size:14px; color:var(--muted); }
-    .pkg-card.featured .pkg-period { color:rgba(255,255,255,0.45); }
-    .pkg-divider { border:none; border-top:1px solid var(--border); margin:20px 0; }
-    .pkg-card.featured .pkg-divider { border-color:rgba(255,255,255,0.1); }
-    .pkg-features { list-style:none; margin-bottom:24px; flex:1; }
-    .pkg-features li { font-size:14px; color:var(--muted); padding:6px 0; display:flex; gap:8px; align-items:flex-start; }
-    .pkg-features li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
-    .pkg-card.featured .pkg-features li { color:rgba(255,255,255,0.65); }
-
-    /* Consulting */
-    .consulting-card {
-      background:linear-gradient(135deg,#06111f 0%,#0c1e35 100%);
-      border-radius:var(--rad-lg); padding:40px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:32px;
-    }
-    .consulting-card h3 { color:#fff; margin-bottom:10px; }
-    .consulting-card p { color:rgba(255,255,255,0.55); font-size:15px; }
-    .consulting-price { text-align:center; white-space:nowrap; }
-    .consulting-price .num { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:#fff; }
-    .consulting-price .lbl { font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px; }
-
-    /* FAQ */
-    .faq { margin-top:32px; }
-    .faq-item { border-top:1px solid var(--border); }
-    .faq-q {
-      width:100%; text-align:left; background:none; border:none; cursor:pointer;
-      padding:18px 0; display:flex; justify-content:space-between; align-items:center;
-      font-family:'DM Sans',sans-serif; font-size:16px; font-weight:600; color:var(--ink);
-    }
-    .faq-q .chevron { font-size:18px; transition:transform .25s; color:var(--muted); }
-    .faq-q[aria-expanded="true"] .chevron { transform:rotate(180deg); }
-    .faq-a { font-size:15px; color:var(--muted); line-height:1.7; max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
-    .faq-a.open { max-height:300px; padding-bottom:18px; }
-
-    @media(max-width:980px) {
-      .svc-grid { grid-template-columns:1fr; }
-      .packages-grid { grid-template-columns:1fr; }
-      .consulting-card { grid-template-columns:1fr; }
-      .consulting-price { text-align:left; }
-    }
+    :root{--ink:#06111f;--ink2:#1a2e45;--ink3:#2d4a6a;--blue:#1a6ef5;--blue2:#3d8bff;--teal:#0ec9b0;--surf:#ffffff;--surf2:#f4f7fc;--surf3:#eaf0fa;--bdr:rgba(6,17,31,0.08);--bdr-b:rgba(26,110,245,0.2);--muted:#5a6f87;--muted2:#8699ae;--sh:0 8px 32px rgba(6,17,31,0.09);--sh-lg:0 20px 60px rgba(6,17,31,0.13);--sh-b:0 8px 28px rgba(26,110,245,0.22);--rad:14px;--rad-lg:20px;--max:1140px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;color:var(--ink)}
+    h1{font-size:clamp(28px,4.5vw,46px);font-weight:800;letter-spacing:-0.02em}
+    h2{font-size:clamp(20px,3vw,32px);font-weight:700;letter-spacing:-0.01em}
+    h3{font-size:19px;font-weight:700}
+    h4{font-size:16px;font-weight:600}
+    p{color:var(--muted)}
+    a{color:var(--blue)}
+    .wrap{width:92%;max-width:var(--max);margin:0 auto}
+    section{padding:72px 0}
+    .hdr{position:sticky;top:0;z-index:900;background:rgba(255,255,255,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);transition:box-shadow .3s}
+    .hdr.sc{box-shadow:var(--sh)}
+    .hdr-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+    .bmark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a6ef5,#0a4dc4);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:18px;box-shadow:var(--sh-b);flex-shrink:0}
+    .btxt{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink)}
+    .bsub{font-size:11px;color:var(--muted);line-height:1}
+    nav.dnav{display:flex;align-items:center;gap:2px}
+    nav.dnav a{font-size:14px;font-weight:500;color:var(--ink3);text-decoration:none;padding:8px 11px;border-radius:8px;transition:color .2s,background .2s}
+    nav.dnav a:hover{color:var(--blue);background:var(--surf2)}
+    nav.dnav a.cur{color:var(--blue);font-weight:600;background:var(--surf2)}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:var(--rad);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .22s;white-space:nowrap}
+    .btn-p{background:var(--blue);color:#fff;box-shadow:var(--sh-b)}
+    .btn-p:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(26,110,245,.32);color:#fff}
+    .btn-s{background:var(--surf);color:var(--ink2);border:1.5px solid var(--bdr)}
+    .btn-s:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+    .btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+    .btn-g:hover{background:rgba(255,255,255,.1);color:#fff}
+    .btn-wh{background:#fff;color:var(--blue);font-weight:700}
+    .btn-wh:hover{background:#f0f5ff}
+    .btn-sm{padding:9px 17px;font-size:14px}
+    .btn-lg{padding:15px 30px;font-size:16px;border-radius:15px}
+    .arr{transition:transform .2s}
+    .btn:hover .arr{transform:translateX(4px)}
+    .ham{display:none;flex-direction:column;gap:5px;padding:7px;background:none;border:none;cursor:pointer}
+    .ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+    .mnav{display:none;flex-direction:column;gap:2px;padding:10px 0 16px;border-top:1px solid var(--bdr)}
+    .mnav.open{display:flex}
+    .mnav a{padding:11px 14px;font-size:15px;font-weight:500;color:var(--ink3);text-decoration:none;border-radius:8px}
+    .mnav a:hover{background:var(--surf2)}
+    .hero{background:linear-gradient(160deg,#06111f 0%,#0c1e35 55%,#0d2848 100%);padding:80px 0 70px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;bottom:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.1),transparent 65%);pointer-events:none}
+    .hero-in{position:relative;z-index:1}
+    .slabel{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(26,110,245,.1);border:1px solid rgba(26,110,245,.2);padding:5px 13px;border-radius:99px}
+    .slabel-wh{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.12)}
+    .hero h1{color:#fff;margin:16px 0 16px}
+    .hero .lead{color:rgba(255,255,255,.62);font-size:17px;max-width:52ch;margin-bottom:28px}
+    .hero-acts{display:flex;gap:12px;flex-wrap:wrap}
+    .svc-sec{padding:64px 0}
+    .svc-sec:nth-child(even){background:var(--surf2)}
+    .svc-sec h2{margin:12px 0 6px}
+    .svc-sub{color:var(--muted);font-size:15px;margin-bottom:28px}
+    .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .scard{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad);padding:26px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .scard:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--bdr-b)}
+    .scard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+    .scard h3{font-size:17px;margin-bottom:8px}
+    .scard p{font-size:14px;line-height:1.65;flex:1}
+    .sprice{margin-top:18px;padding-top:16px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .ptag{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink)}
+    .psub{font-size:12px;color:var(--muted);margin-top:1px}
+    .badge{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:rgba(26,110,245,.08);color:var(--blue);border:1px solid rgba(26,110,245,.18);flex-shrink:0}
+    .consult-card{background:linear-gradient(135deg,#06111f,#0c1e35);border-radius:var(--rad-lg);padding:40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+    .consult-card h3{color:#fff;margin-bottom:10px;font-size:22px}
+    .consult-card p{color:rgba(255,255,255,.55);font-size:15px;margin-bottom:20px}
+    .cprice .num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#fff;white-space:nowrap}
+    .cprice .lbl{font-size:13px;color:rgba(255,255,255,.4);margin-top:4px}
+    .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .pkg{background:#fff;border:1px solid var(--bdr);border-radius:var(--rad-lg);padding:30px;display:flex;flex-direction:column;position:relative;transition:transform .25s,box-shadow .25s}
+    .pkg:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+    .pkg.feat{background:linear-gradient(135deg,#06111f,#0c1e35);border-color:rgba(26,110,245,.3)}
+    .pkg-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:99px;white-space:nowrap}
+    .pkg-name{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+    .pkg.feat .pkg-name{color:rgba(255,255,255,.4)}
+    .pkg-price{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:var(--ink);margin:12px 0 4px}
+    .pkg.feat .pkg-price{color:#fff}
+    .pkg-period{font-size:14px;color:var(--muted)}
+    .pkg.feat .pkg-period{color:rgba(255,255,255,.4)}
+    .pkg-div{border:none;border-top:1px solid var(--bdr);margin:18px 0}
+    .pkg.feat .pkg-div{border-color:rgba(255,255,255,.1)}
+    .pkg-feats{list-style:none;margin-bottom:22px;flex:1}
+    .pkg-feats li{font-size:14px;color:var(--muted);padding:6px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+    .pkg-feats li::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0}
+    .pkg.feat .pkg-feats li{color:rgba(255,255,255,.65)}
+    .faq{margin-top:28px}
+    .faq-item{border-top:1px solid var(--bdr)}
+    .faq-item:last-child{border-bottom:1px solid var(--bdr)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:var(--ink)}
+    .faq-q .chev{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+    .faq-q[aria-expanded=true] .chev{transform:rotate(180deg)}
+    .faq-a{font-size:15px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .32s ease,padding .32s ease}
+    .faq-a.open{max-height:300px;padding-bottom:18px}
+    .ctab{background:var(--blue);padding:72px 0;text-align:center}
+    .ctab h2{color:#fff;margin-bottom:12px}
+    .ctab p{color:rgba(255,255,255,.7);max-width:46ch;margin:0 auto 28px}
+    .ftr{background:#06111f;padding:60px 0 28px}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .fdesc{font-size:14px;color:rgba(255,255,255,.45);margin-top:12px;max-width:26ch;line-height:1.7}
+    .ftitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
+    .ftr a{display:block;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;padding:4px 0;transition:color .2s}
+    .ftr a:hover{color:#fff}
+    .fbot{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:13px;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:10px}
+    .fbot-l{display:flex;gap:20px}
+    @media(max-width:1020px){.svc-grid{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}.consult-card{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}nav.dnav{display:none}.ham{display:flex}.nav-cta{display:none}}
+    @media(max-width:640px){section{padding:52px 0}.fgrid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="brand">
-          <div class="brand-mark">V</div>
-          <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-        </a>
-        <nav class="main-nav" aria-label="Primary">
-          <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
-          <a href="team.html">Team</a><a href="products.html" class="active">Services</a><a href="index.html#contact">Contact</a>
-        </nav>
-        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Book a Free Call →</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
-        <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
-        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
-      </div>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a href="index.html" class="brand"><div class="bmark">V</div><div><div class="btxt">VStack</div><div class="bsub">Automation & Software</div></div></a>
+      <nav class="dnav"><a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html">Team</a><a href="products.html" class="cur">Services</a><a href="index.html#contact">Contact</a></nav>
+      <a href="index.html#contact" class="btn btn-p btn-sm nav-cta">Book a Free Call <span class="arr">→</span></a>
+      <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="section-label" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Services & Pricing</div>
-      <h1 style="margin-top:16px">Enterprise solutions for every<br>stage of your journey</h1>
-      <p class="lead">From custom software to managed operations — we design, build, and operate solutions tailored to your needs. Transparent pricing, no hidden fees.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
-        <a href="index.html#contact" class="btn btn-primary btn-lg">Get a Custom Quote →</a>
-        <a href="#packages" class="btn btn-ghost btn-lg">View Packages</a>
-      </div>
+    <div class="mnav" id="mnav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="btn btn-p btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- CUSTOM SOFTWARE -->
-  <section class="service-section">
-    <div class="container">
-      <div class="section-label">Custom Software Development</div>
-      <h2 style="margin-top:12px">Scalable software built for your product goals</h2>
-      <p class="sub">SPAs, APIs, microservices, and mobile apps — designed with quality and longevity in mind.</p>
-      <div class="svc-grid">
-        <div class="svc-card">
-          <div class="svc-card-header">
-            <h3>Full-Stack Web Applications</h3>
-            <span class="badge badge-blue">Popular</span>
-          </div>
-          <p>SPAs, PWAs, admin dashboards, e-commerce platforms. Built with React, Next.js or Vue on the frontend; Node.js or Python on the backend.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹2,50,000</div><div class="price-sub">Scope-based</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header"><h3>API Development & Integrations</h3></div>
-          <p>REST and GraphQL APIs, third-party integrations, OpenAPI documentation, and webhook infrastructure. Clean, versioned, and fully documented.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹1,00,000</div><div class="price-sub">Scope-based</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header"><h3>Microservices & Architecture</h3></div>
-          <p>Event-driven systems, service decomposition, Kubernetes deployments, and distributed systems design for teams scaling beyond a monolith.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">₹5,00,000+</div><div class="price-sub">Custom engagement</div></div>
-            <a href="index.html#contact" class="btn btn-secondary btn-sm">Discuss Design →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header">
-            <h3>Mobile App Development</h3>
-            <span class="badge badge-blue">Popular</span>
-          </div>
-          <p>React Native or Flutter cross-platform apps, or native iOS and Android. Offline-first architecture, push notifications, and secure sync built in.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹3,00,000</div><div class="price-sub">Scope-based</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-      </div>
+<section class="hero"><div class="wrap hero-in">
+  <div class="slabel slabel-wh">Services & Pricing</div>
+  <h1>Enterprise solutions for every<br>stage of your journey</h1>
+  <p class="lead">From custom software to managed operations — we design, build, and operate solutions tailored to your needs. Transparent pricing, no hidden fees.</p>
+  <div class="hero-acts"><a href="index.html#contact" class="btn btn-p btn-lg">Get a Custom Quote <span class="arr">→</span></a><a href="#packages" class="btn btn-g btn-lg">View Packages</a></div>
+</div></section>
+
+<section class="svc-sec">
+  <div class="wrap">
+    <div class="slabel">Custom Software Development</div>
+    <h2>Scalable software built for your product goals</h2>
+    <p class="svc-sub">SPAs, APIs, microservices, and mobile apps — designed with quality and longevity in mind.</p>
+    <div class="svc-grid">
+      <div class="scard"><div class="scard-top"><h3>Full-Stack Web Applications</h3><span class="badge">Popular</span></div><p>SPAs, PWAs, admin dashboards, e-commerce platforms. Built with React, Next.js or Vue on the frontend; Node.js or Python on the backend.</p><div class="sprice"><div><div class="ptag">From ₹2,50,000</div><div class="psub">Scope-based</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>API Development & Integrations</h3></div><p>REST and GraphQL APIs, third-party integrations, OpenAPI documentation, and webhook infrastructure. Clean, versioned, and fully documented.</p><div class="sprice"><div><div class="ptag">From ₹1,00,000</div><div class="psub">Scope-based</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>Microservices & Architecture</h3></div><p>Event-driven systems, service decomposition, Kubernetes deployments, and distributed systems design for teams scaling beyond a monolith.</p><div class="sprice"><div><div class="ptag">₹5,00,000+</div><div class="psub">Custom engagement</div></div><a href="index.html#contact" class="btn btn-s btn-sm">Discuss Design →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>Mobile App Development</h3><span class="badge">Popular</span></div><p>React Native or Flutter cross-platform apps, or native iOS and Android. Offline-first architecture, push notifications, and secure sync built in.</p><div class="sprice"><div><div class="ptag">From ₹3,00,000</div><div class="psub">Scope-based</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- AUTOMATION -->
-  <section class="service-section">
-    <div class="container">
-      <div class="section-label">Automation & Workflows</div>
-      <h2 style="margin-top:12px">Reduce manual work. Increase throughput.</h2>
-      <p class="sub">Business process automation, workflow orchestration, and data pipelines with robust retry and compensation logic.</p>
-      <div class="svc-grid">
-        <div class="svc-card">
-          <div class="svc-card-header"><h3>Business Process Automation</h3></div>
-          <p>Order flows, billing automation, notifications, OCR, and document processing. Automate repetitive work and free your team to focus on higher value tasks.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹1,50,000</div><div class="price-sub">Per workflow set</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header"><h3>Workflow Orchestration</h3></div>
-          <p>Airflow and Temporal-based orchestration with robust retry, compensation logic, and dead-letter queues. Built for production reliability from day one.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹2,00,000</div><div class="price-sub">Per orchestration system</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header">
-            <h3>Data Engineering</h3>
-            <span class="badge badge-blue">Popular</span>
-          </div>
-          <p>ETL/ELT pipelines, data warehouses, data quality monitoring, and cleaning pipelines that feed your analytics and ML models reliably at scale.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹2,50,000</div><div class="price-sub">Scope-based</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-        <div class="svc-card">
-          <div class="svc-card-header"><h3>Managed Operations & SRE</h3></div>
-          <p>Ongoing monitoring, alerting, incident response, and SLA management. Your critical systems watched 24/7 with documented runbooks and clear escalation paths.</p>
-          <div class="svc-price">
-            <div><div class="price-tag">From ₹50,000/mo</div><div class="price-sub">Monthly retainer</div></div>
-            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
-          </div>
-        </div>
-      </div>
+<section class="svc-sec">
+  <div class="wrap">
+    <div class="slabel">Automation & Workflows</div>
+    <h2>Reduce manual work. Increase throughput.</h2>
+    <p class="svc-sub">Business process automation, workflow orchestration, and data pipelines with robust retry and compensation logic.</p>
+    <div class="svc-grid">
+      <div class="scard"><div class="scard-top"><h3>Business Process Automation</h3></div><p>Order flows, billing automation, notifications, OCR, and document processing. Automate repetitive work and free your team to focus on higher value tasks.</p><div class="sprice"><div><div class="ptag">From ₹1,50,000</div><div class="psub">Per workflow set</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>Workflow Orchestration</h3></div><p>Airflow and Temporal-based orchestration with robust retry, compensation logic, and dead-letter queues. Built for production reliability from day one.</p><div class="sprice"><div><div class="ptag">From ₹2,00,000</div><div class="psub">Per orchestration system</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>Data Engineering</h3><span class="badge">Popular</span></div><p>ETL/ELT pipelines, data warehouses, data quality monitoring, and cleaning pipelines that feed your analytics and ML models reliably at scale.</p><div class="sprice"><div><div class="ptag">From ₹2,50,000</div><div class="psub">Scope-based</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
+      <div class="scard"><div class="scard-top"><h3>Managed Operations & SRE</h3></div><p>Ongoing monitoring, alerting, incident response, and SLA management. Your critical systems watched 24/7 with documented runbooks and clear escalation paths.</p><div class="sprice"><div><div class="ptag">From ₹50,000/mo</div><div class="psub">Monthly retainer</div></div><a href="index.html#contact" class="btn btn-p btn-sm">Get a Quote →</a></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONSULTING -->
-  <section class="service-section">
-    <div class="container">
-      <div class="section-label">Consulting & Advisory</div>
-      <h2 style="margin-top:12px">Expert guidance when you need it most</h2>
-      <p class="sub" style="margin-bottom:24px">Architecture reviews, performance optimisation, technology due diligence, and actionable roadmaps.</p>
-      <div class="consulting-card">
-        <div>
-          <h3>Architecture Review & Roadmap</h3>
-          <p>We assess your current stack, identify risks and bottlenecks, and produce an actionable improvement roadmap — with or without a build engagement.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
-            <a href="index.html#contact" class="btn btn-primary">Book a Consultation →</a>
-            <a href="index.html#contact" class="btn btn-ghost">Talk to an engineer</a>
-          </div>
-        </div>
-        <div class="consulting-price">
-          <div class="num">₹50k – ₹1.5L</div>
-          <div class="lbl">Per engagement</div>
-        </div>
-      </div>
+<section class="svc-sec">
+  <div class="wrap">
+    <div class="slabel">Consulting & Advisory</div>
+    <h2>Expert guidance when you need it most</h2>
+    <p class="svc-sub">Architecture reviews, performance optimisation, technology due diligence, and actionable roadmaps.</p>
+    <div class="consult-card">
+      <div><h3>Architecture Review & Roadmap</h3><p>We assess your current stack, identify risks and bottlenecks, and produce an actionable improvement roadmap — with or without a build engagement.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="index.html#contact" class="btn btn-p">Book a Consultation →</a><a href="index.html#contact" class="btn btn-g">Talk to an engineer</a></div></div>
+      <div class="cprice"><div class="num">₹50k – ₹1.5L</div><div class="lbl">Per engagement</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PACKAGES -->
-  <section class="service-section" id="packages">
-    <div class="container">
-      <div class="section-label">Service Packages</div>
-      <h2 style="margin-top:12px">Bundled solutions for common needs</h2>
-      <p class="sub">Packaged for teams who want a clear scope and predictable cost from day one.</p>
-      <div class="packages-grid">
-        <div class="pkg-card">
-          <div><span class="badge">Startup</span></div>
-          <div class="pkg-price">₹4,50,000</div>
-          <div class="pkg-period">One-time</div>
-          <hr class="pkg-divider" />
-          <ul class="pkg-features">
-            <li>MVP web or mobile application</li>
-            <li>Up to 3 core workflows automated</li>
-            <li>3 months hosting & maintenance</li>
-            <li>Basic CI/CD pipeline setup</li>
-            <li>Handover documentation</li>
-          </ul>
-          <a href="index.html#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Get Started →</a>
-        </div>
-        <div class="pkg-card featured">
-          <div class="pkg-badge">Most Popular</div>
-          <div><span class="badge" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Automation</span></div>
-          <div class="pkg-price">₹5,00,000</div>
-          <div class="pkg-period">Includes 6 months support</div>
-          <hr class="pkg-divider" />
-          <ul class="pkg-features">
-            <li>3 end-to-end automation workflows</li>
-            <li>Monitoring dashboards & alerts</li>
-            <li>6 months managed support</li>
-            <li>Runbooks and documentation</li>
-            <li>24hr incident response SLA</li>
-            <li>Monthly performance reports</li>
-          </ul>
-          <a href="index.html#contact" class="btn btn-primary" style="width:100%;justify-content:center">Get Started →</a>
-        </div>
-        <div class="pkg-card">
-          <div><span class="badge">Enterprise</span></div>
-          <div class="pkg-price">₹20,00,000+</div>
-          <div class="pkg-period">Custom engagement</div>
-          <hr class="pkg-divider" />
-          <ul class="pkg-features">
-            <li>Full platform architecture & build</li>
-            <li>Unlimited workflows & integrations</li>
-            <li>Managed operations (SRE)</li>
-            <li>Dedicated engineering team</li>
-            <li>Enterprise SLA & compliance</li>
-            <li>Executive reporting & reviews</li>
-          </ul>
-          <a href="index.html#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Talk to Us →</a>
-        </div>
-      </div>
+<section class="svc-sec" id="packages">
+  <div class="wrap">
+    <div class="slabel">Service Packages</div>
+    <h2>Bundled solutions for common needs</h2>
+    <p class="svc-sub">Packaged for teams who want a clear scope and predictable cost from day one.</p>
+    <div class="pkg-grid">
+      <div class="pkg"><div class="pkg-name">Startup</div><div class="pkg-price">₹4,50,000</div><div class="pkg-period">One-time</div><hr class="pkg-div"/><ul class="pkg-feats"><li>MVP web or mobile application</li><li>Up to 3 core workflows automated</li><li>3 months hosting & maintenance</li><li>Basic CI/CD pipeline setup</li><li>Handover documentation</li></ul><a href="index.html#contact" class="btn btn-s" style="width:100%;justify-content:center">Get Started →</a></div>
+      <div class="pkg feat"><div class="pkg-badge">Most Popular</div><div class="pkg-name">Automation</div><div class="pkg-price">₹5,00,000</div><div class="pkg-period">Includes 6 months support</div><hr class="pkg-div"/><ul class="pkg-feats"><li>3 end-to-end automation workflows</li><li>Monitoring dashboards & alerts</li><li>6 months managed support</li><li>Runbooks and documentation</li><li>24hr incident response SLA</li><li>Monthly performance reports</li></ul><a href="index.html#contact" class="btn btn-p" style="width:100%;justify-content:center">Get Started →</a></div>
+      <div class="pkg"><div class="pkg-name">Enterprise</div><div class="pkg-price">₹20,00,000+</div><div class="pkg-period">Custom engagement</div><hr class="pkg-div"/><ul class="pkg-feats"><li>Full platform architecture & build</li><li>Unlimited workflows & integrations</li><li>Managed operations (SRE)</li><li>Dedicated engineering team</li><li>Enterprise SLA & compliance</li><li>Executive reporting & reviews</li></ul><a href="index.html#contact" class="btn btn-s" style="width:100%;justify-content:center">Talk to Us →</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section class="service-section">
-    <div class="container" style="max-width:720px">
-      <div class="section-label">FAQ</div>
-      <h2 style="margin-top:12px">Common questions</h2>
-      <div class="faq" id="faq">
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">How do you handle project scope changes? <span class="chevron">▾</span></button>
-          <div class="faq-a">We use a milestone-based approach with regular demos. Any scope changes are discussed openly with impact on timeline and cost before proceeding. No surprise invoices.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Do I own the code you write? <span class="chevron">▾</span></button>
-          <div class="faq-a">Yes — always. All code, repositories, infrastructure configuration, and documentation belong to you from day one. We hand over everything at project completion with a knowledge transfer session.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">What is your typical project timeline? <span class="chevron">▾</span></button>
-          <div class="faq-a">Discovery takes 1–2 weeks. Most MVP projects run 6–10 weeks from kickoff to launch. Larger enterprise projects are scoped per engagement. We'll give you a clear timeline estimate during our initial call.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Can you work with our existing team? <span class="chevron">▾</span></button>
-          <div class="faq-a">Absolutely. We regularly embed with existing engineering teams, pick up existing codebases, and augment capacity. We adapt to your workflow and tooling preferences.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">What does the free strategy call include? <span class="chevron">▾</span></button>
-          <div class="faq-a">A 30-minute call with a senior engineer to understand your challenge, map it to a practical approach, and provide a rough scope and timeline estimate. No obligation, no sales pressure.</div>
-        </div>
-      </div>
+<section class="svc-sec">
+  <div class="wrap" style="max-width:700px">
+    <div class="slabel">FAQ</div>
+    <h2 style="margin:12px 0 28px">Common questions</h2>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">How do you handle project scope changes? <span class="chev">▾</span></button><div class="faq-a">We use a milestone-based approach with regular demos. Scope changes are discussed openly with impact on timeline and cost before proceeding. No surprise invoices.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I own the code you write? <span class="chev">▾</span></button><div class="faq-a">Yes — always. All code, repositories, infrastructure, and documentation belong to you from day one. We do a full knowledge transfer session at completion.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What is your typical project timeline? <span class="chev">▾</span></button><div class="faq-a">Discovery takes 1–2 weeks. Most MVPs run 6–10 weeks from kickoff to launch. We'll give you a clear timeline estimate during our initial call.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you work with our existing team? <span class="chev">▾</span></button><div class="faq-a">Absolutely. We regularly embed with existing teams, pick up existing codebases, and augment capacity. We adapt to your workflow and tooling.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What does the free strategy call include? <span class="chev">▾</span></button><div class="faq-a">A 30-minute call with a senior engineer to understand your challenge, map it to a practical approach, and provide a rough scope and timeline estimate. No obligation.</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section style="background:var(--blue);padding:80px 0;text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff;margin-bottom:12px">Not sure which service you need?</h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:46ch;margin:0 auto 32px">Book a free 30-minute call with one of our engineers. We'll listen, ask the right questions, and point you in the right direction — no obligation.</p>
-      <a href="index.html#contact" class="btn btn-lg" style="background:#fff;color:var(--blue);font-weight:700">Book a Free Strategy Call →</a>
-    </div>
-  </section>
+<section class="ctab"><div class="wrap"><h2>Not sure which service you need?</h2><p>Book a free 30-minute call with one of our engineers. We'll listen and point you in the right direction — no obligation.</p><a href="index.html#contact" class="btn btn-wh btn-lg">Book a Free Strategy Call →</a></div></section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand" style="color:inherit;text-decoration:none">
-            <div class="brand-mark">V</div>
-            <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
-          </a>
-          <p class="footer-desc">Enterprise-grade automation and software engineering — shipped faster.</p>
-        </div>
-        <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
-        <div class="footer-col"><h5>Services</h5><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
-        <div class="footer-col"><h5>Contact</h5><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 VStack — Bhubaneswar, Odisha, India</span>
-        <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => { const open = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', open); });
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        document.querySelectorAll('.faq-q').forEach(b => { b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
-        if (!expanded) { btn.setAttribute('aria-expanded','true'); btn.nextElementSibling.classList.add('open'); }
-      });
+<footer class="ftr"><div class="wrap">
+  <div class="fgrid">
+    <div><a href="index.html" class="brand" style="text-decoration:none"><div class="bmark">V</div><div><div class="btxt" style="color:#fff">VStack</div><div class="bsub" style="color:rgba(255,255,255,.35)">Automation & Software</div></div></a><p class="fdesc">Enterprise-grade automation and software engineering — shipped faster.</p></div>
+    <div><div class="ftitle">Company</div><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
+    <div><div class="ftitle">Services</div><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
+    <div><div class="ftitle">Contact</div><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
+  </div>
+  <div class="fbot"><span>© 2025 VStack — Bhubaneswar, Odisha, India</span><div class="fbot-l"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+</div></footer>
+<script>
+  const hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>40),{passive:true});
+  const ham=document.getElementById('ham'),mnav=document.getElementById('mnav');
+  ham.addEventListener('click',()=>{const o=mnav.classList.toggle('open');ham.setAttribute('aria-expanded',o);});
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const exp=btn.getAttribute('aria-expanded')==='true';
+      document.querySelectorAll('.faq-q').forEach(b=>{b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+      if(!exp){btn.setAttribute('aria-expanded','true');btn.nextElementSibling.classList.add('open');}
     });
-  </script>
+  });
+</script>
 </body>
 </html>
