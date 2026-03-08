@@ -1,128 +1,391 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Services & Products - Custom Software, Automation & Cloud Solutions</title>
-  <meta name="description" content="Explore VStack's comprehensive services: custom software development, automation, mobile apps, data engineering, and managed operations." />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services & Pricing — VStack</title>
+  <meta name="description" content="VStack's comprehensive services: custom software, automation, mobile apps, data engineering, managed operations. Transparent pricing starting from ₹1,00,000." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    :root{--blue-900:#032b57;--muted:#6b7280;--max-width:1200px}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;color:var(--blue-900);background:linear-gradient(180deg,#f8fbff,#fff)}
-    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:28px 0}
-    header{display:flex;align-items:center;justify-content:space-between}
-    nav a{margin-left:12px;text-decoration:none;color:var(--blue-900)}
-    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-    .service-card{background:#fff;padding:16px;border-radius:12px;border:1px solid rgba(3,43,87,0.04);box-shadow:0 8px 24px rgba(10,37,77,0.04)}
-    .price{font-weight:800;color:var(--blue-700);margin-top:8px}
-    @media (max-width:980px){.services{grid-template-columns:1fr}nav{display:none}}
+    .page-hero {
+      background: linear-gradient(160deg, #06111f 0%, #0c1e35 60%, #0d2848 100%);
+      padding: 90px 0 80px; overflow: hidden; position: relative;
+    }
+    .page-hero::before {
+      content:''; position:absolute; top:-150px; right:-100px; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(26,110,245,0.12), transparent 65%); pointer-events:none;
+    }
+    .page-hero h1 { color:#fff; margin-bottom:16px; }
+    .page-hero .lead { color:rgba(255,255,255,0.6); max-width:54ch; }
+
+    /* Service sections */
+    .service-section { padding: 60px 0; }
+    .service-section:nth-child(even) { background: var(--surface-2); }
+
+    .service-section h2 { margin-bottom: 8px; }
+    .service-section .sub { color: var(--muted); margin-bottom: 32px; font-size: 15px; }
+
+    /* Service cards */
+    .svc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .svc-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad); padding:28px;
+      display:flex; flex-direction:column; gap:0;
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .svc-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-blue); }
+    .svc-card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; }
+    .svc-card h3 { font-size:17px; margin-bottom:8px; }
+    .svc-card p { font-size:14px; color:var(--muted); flex:1; line-height:1.65; }
+    .svc-price { margin-top:16px; padding-top:16px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+    .price-tag { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; color:var(--ink); }
+    .price-sub { font-size:12px; color:var(--muted); margin-top:2px; }
+
+    /* Packages */
+    .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+    .pkg-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--rad-lg); padding:32px;
+      display:flex; flex-direction:column;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .pkg-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+    .pkg-card.featured {
+      background:linear-gradient(135deg,#06111f,#0c1e35);
+      border-color:rgba(26,110,245,0.35);
+      position:relative;
+    }
+    .pkg-card.featured h3, .pkg-card.featured p, .pkg-card.featured li { color:rgba(255,255,255,0.75); }
+    .pkg-card.featured h3 { color:#fff; }
+    .pkg-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--blue); color:#fff; font-size:12px; font-weight:700; padding:4px 14px; border-radius:99px; white-space:nowrap; }
+    .pkg-price { font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:var(--ink); margin:16px 0 8px; }
+    .pkg-card.featured .pkg-price { color:#fff; }
+    .pkg-period { font-size:14px; color:var(--muted); }
+    .pkg-card.featured .pkg-period { color:rgba(255,255,255,0.45); }
+    .pkg-divider { border:none; border-top:1px solid var(--border); margin:20px 0; }
+    .pkg-card.featured .pkg-divider { border-color:rgba(255,255,255,0.1); }
+    .pkg-features { list-style:none; margin-bottom:24px; flex:1; }
+    .pkg-features li { font-size:14px; color:var(--muted); padding:6px 0; display:flex; gap:8px; align-items:flex-start; }
+    .pkg-features li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
+    .pkg-card.featured .pkg-features li { color:rgba(255,255,255,0.65); }
+
+    /* Consulting */
+    .consulting-card {
+      background:linear-gradient(135deg,#06111f 0%,#0c1e35 100%);
+      border-radius:var(--rad-lg); padding:40px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:32px;
+    }
+    .consulting-card h3 { color:#fff; margin-bottom:10px; }
+    .consulting-card p { color:rgba(255,255,255,0.55); font-size:15px; }
+    .consulting-price { text-align:center; white-space:nowrap; }
+    .consulting-price .num { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:#fff; }
+    .consulting-price .lbl { font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px; }
+
+    /* FAQ */
+    .faq { margin-top:32px; }
+    .faq-item { border-top:1px solid var(--border); }
+    .faq-q {
+      width:100%; text-align:left; background:none; border:none; cursor:pointer;
+      padding:18px 0; display:flex; justify-content:space-between; align-items:center;
+      font-family:'DM Sans',sans-serif; font-size:16px; font-weight:600; color:var(--ink);
+    }
+    .faq-q .chevron { font-size:18px; transition:transform .25s; color:var(--muted); }
+    .faq-q[aria-expanded="true"] .chevron { transform:rotate(180deg); }
+    .faq-a { font-size:15px; color:var(--muted); line-height:1.7; max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
+    .faq-a.open { max-height:300px; padding-bottom:18px; }
+
+    @media(max-width:980px) {
+      .svc-grid { grid-template-columns:1fr; }
+      .packages-grid { grid-template-columns:1fr; }
+      .consulting-card { grid-template-columns:1fr; }
+      .consulting-price { text-align:left; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="index.html" style="font-weight:800;text-decoration:none;color:var(--blue-900)">VStack</a>
-      <nav aria-label="Primary Navigation"><a href="about.html">About</a><a href="why-us.html">Why Us</a><a href="team.html">Team</a><a href="products.html">Services</a></nav>
-    </header>
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="brand">
+          <div class="brand-mark">V</div>
+          <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
+        </a>
+        <nav class="main-nav" aria-label="Primary">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
+          <a href="team.html">Team</a><a href="products.html" class="active">Services</a><a href="index.html#contact">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Book a Free Call →</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="why-us.html">Why Us</a>
+        <a href="team.html">Team</a><a href="products.html">Services</a><a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:8px;width:fit-content">Book a Free Call</a>
+      </div>
+    </div>
+  </header>
 
-    <main>
-      <h1>Enterprise solutions for every stage of your automation journey</h1>
-      <p class="muted">From custom software to managed operations — we design, build and operate solutions tailored to your needs.</p>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Services & Pricing</div>
+      <h1 style="margin-top:16px">Enterprise solutions for every<br>stage of your journey</h1>
+      <p class="lead">From custom software to managed operations — we design, build, and operate solutions tailored to your needs. Transparent pricing, no hidden fees.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+        <a href="index.html#contact" class="btn btn-primary btn-lg">Get a Custom Quote →</a>
+        <a href="#packages" class="btn btn-ghost btn-lg">View Packages</a>
+      </div>
+    </div>
+  </section>
 
-      <section style="margin-top:18px">
-        <h2>Custom software development</h2>
-        <div class="services">
-          <div class="service-card">
-            <h3>Full-stack web applications</h3>
-            <p class="muted">SPAs, PWAs, admin dashboards, e-commerce platforms.</p>
-            <div class="price">Starting at ₹2,50,000</div>
-            <div style="margin-top:8px"><a href="index.html#contact">Request a quote</a></div>
+  <!-- CUSTOM SOFTWARE -->
+  <section class="service-section">
+    <div class="container">
+      <div class="section-label">Custom Software Development</div>
+      <h2 style="margin-top:12px">Scalable software built for your product goals</h2>
+      <p class="sub">SPAs, APIs, microservices, and mobile apps — designed with quality and longevity in mind.</p>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-card-header">
+            <h3>Full-Stack Web Applications</h3>
+            <span class="badge badge-blue">Popular</span>
           </div>
-
-          <div class="service-card">
-            <h3>API development & integrations</h3>
-            <p class="muted">REST/GraphQL APIs, third-party integrations, OpenAPI docs.</p>
-            <div class="price">Starting at ₹1,00,000</div>
-            <div style="margin-top:8px"><a href="index.html#contact">Request a quote</a></div>
-          </div>
-
-          <div class="service-card">
-            <h3>Microservices & architecture</h3>
-            <p class="muted">Event-driven systems, service decomposition, K8s deployments.</p>
-            <div class="price">Custom — ₹5,00,000+</div>
-            <div style="margin-top:8px"><a href="index.html#contact">Discuss design</a></div>
-          </div>
-
-          <div class="service-card">
-            <h3>Mobile app development</h3>
-            <p class="muted">React Native / Flutter cross-platform or native iOS/Android.</p>
-            <div class="price">Starting at ₹3,00,000</div>
-            <div style="margin-top:8px"><a href="index.html#demos">View demos</a></div>
-          </div>
-        </div>
-      </section>
-
-      <section style="margin-top:18px">
-        <h2>Automation & workflows</h2>
-        <div class="services">
-          <div class="service-card">
-            <h3>Business process automation</h3>
-            <p class="muted">Order flows, billing automation, notifications, OCR.</p>
-            <div class="price">Starting at ₹1,50,000</div>
-          </div>
-          <div class="service-card">
-            <h3>Workflow orchestration</h3>
-            <p class="muted">Airflow, Temporal, robust retry and compensation logic.</p>
-            <div class="price">Starting at ₹2,00,000</div>
-          </div>
-
-          <div class="service-card">
-            <h3>Data engineering</h3>
-            <p class="muted">ETL/ELT, data warehouses, data quality and cleaning.</p>
-            <div class="price">Starting at ₹2,50,000</div>
-          </div>
-
-          <div class="service-card">
-            <h3>Managed operations & SRE</h3>
-            <p class="muted">Monitoring, incident response, SLA management.</p>
-            <div class="price">From ₹50,000 / month</div>
+          <p>SPAs, PWAs, admin dashboards, e-commerce platforms. Built with React, Next.js or Vue on the frontend; Node.js or Python on the backend.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹2,50,000</div><div class="price-sub">Scope-based</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
           </div>
         </div>
-      </section>
-
-      <section style="margin-top:18px">
-        <h2>Consulting & advisory</h2>
-        <div class="card" style="margin-top:8px">
-          <p class="muted">Architecture reviews, performance optimization, technology due diligence and actionable roadmaps.</p>
-          <div class="price">Consulting: ₹50,000 - ₹1,50,000</div>
-        </div>
-      </section>
-
-      <section style="margin-top:18px">
-        <h2>Service packages</h2>
-        <div class="services">
-          <div class="service-card">
-            <strong>Startup Launch</strong>
-            <p class="muted">MVP, basic automation, 3 months hosting</p>
-            <div class="price">₹4,50,000</div>
-          </div>
-          <div class="service-card">
-            <strong>Automation Accelerator</strong>
-            <p class="muted">3 workflows & 6 months support</p>
-            <div class="price">₹5,00,000</div>
-          </div>
-          <div class="service-card">
-            <strong>Enterprise Transformation</strong>
-            <p class="muted">Full platform + managed operations</p>
-            <div class="price">₹20,00,000+</div>
+        <div class="svc-card">
+          <div class="svc-card-header"><h3>API Development & Integrations</h3></div>
+          <p>REST and GraphQL APIs, third-party integrations, OpenAPI documentation, and webhook infrastructure. Clean, versioned, and fully documented.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹1,00,000</div><div class="price-sub">Scope-based</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="svc-card">
+          <div class="svc-card-header"><h3>Microservices & Architecture</h3></div>
+          <p>Event-driven systems, service decomposition, Kubernetes deployments, and distributed systems design for teams scaling beyond a monolith.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">₹5,00,000+</div><div class="price-sub">Custom engagement</div></div>
+            <a href="index.html#contact" class="btn btn-secondary btn-sm">Discuss Design →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card-header">
+            <h3>Mobile App Development</h3>
+            <span class="badge badge-blue">Popular</span>
+          </div>
+          <p>React Native or Flutter cross-platform apps, or native iOS and Android. Offline-first architecture, push notifications, and secure sync built in.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹3,00,000</div><div class="price-sub">Scope-based</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer style="margin-top:22px;color:var(--muted);border-top:1px solid rgba(3,43,87,0.04);padding-top:12px;display:flex;justify-content:space-between">
-      <div>© VStack — Bhubaneswar</div>
-      <div><a href="mailto:j.r.badatya@gmail.com" style="text-decoration:none;color:var(--muted)">j.r.badatya@gmail.com</a></div>
-    </footer>
-  </div>
+  <!-- AUTOMATION -->
+  <section class="service-section">
+    <div class="container">
+      <div class="section-label">Automation & Workflows</div>
+      <h2 style="margin-top:12px">Reduce manual work. Increase throughput.</h2>
+      <p class="sub">Business process automation, workflow orchestration, and data pipelines with robust retry and compensation logic.</p>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-card-header"><h3>Business Process Automation</h3></div>
+          <p>Order flows, billing automation, notifications, OCR, and document processing. Automate repetitive work and free your team to focus on higher value tasks.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹1,50,000</div><div class="price-sub">Per workflow set</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card-header"><h3>Workflow Orchestration</h3></div>
+          <p>Airflow and Temporal-based orchestration with robust retry, compensation logic, and dead-letter queues. Built for production reliability from day one.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹2,00,000</div><div class="price-sub">Per orchestration system</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card-header">
+            <h3>Data Engineering</h3>
+            <span class="badge badge-blue">Popular</span>
+          </div>
+          <p>ETL/ELT pipelines, data warehouses, data quality monitoring, and cleaning pipelines that feed your analytics and ML models reliably at scale.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹2,50,000</div><div class="price-sub">Scope-based</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card-header"><h3>Managed Operations & SRE</h3></div>
+          <p>Ongoing monitoring, alerting, incident response, and SLA management. Your critical systems watched 24/7 with documented runbooks and clear escalation paths.</p>
+          <div class="svc-price">
+            <div><div class="price-tag">From ₹50,000/mo</div><div class="price-sub">Monthly retainer</div></div>
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTING -->
+  <section class="service-section">
+    <div class="container">
+      <div class="section-label">Consulting & Advisory</div>
+      <h2 style="margin-top:12px">Expert guidance when you need it most</h2>
+      <p class="sub" style="margin-bottom:24px">Architecture reviews, performance optimisation, technology due diligence, and actionable roadmaps.</p>
+      <div class="consulting-card">
+        <div>
+          <h3>Architecture Review & Roadmap</h3>
+          <p>We assess your current stack, identify risks and bottlenecks, and produce an actionable improvement roadmap — with or without a build engagement.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+            <a href="index.html#contact" class="btn btn-primary">Book a Consultation →</a>
+            <a href="index.html#contact" class="btn btn-ghost">Talk to an engineer</a>
+          </div>
+        </div>
+        <div class="consulting-price">
+          <div class="num">₹50k – ₹1.5L</div>
+          <div class="lbl">Per engagement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="service-section" id="packages">
+    <div class="container">
+      <div class="section-label">Service Packages</div>
+      <h2 style="margin-top:12px">Bundled solutions for common needs</h2>
+      <p class="sub">Packaged for teams who want a clear scope and predictable cost from day one.</p>
+      <div class="packages-grid">
+        <div class="pkg-card">
+          <div><span class="badge">Startup</span></div>
+          <div class="pkg-price">₹4,50,000</div>
+          <div class="pkg-period">One-time</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>MVP web or mobile application</li>
+            <li>Up to 3 core workflows automated</li>
+            <li>3 months hosting & maintenance</li>
+            <li>Basic CI/CD pipeline setup</li>
+            <li>Handover documentation</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Get Started →</a>
+        </div>
+        <div class="pkg-card featured">
+          <div class="pkg-badge">Most Popular</div>
+          <div><span class="badge" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)">Automation</span></div>
+          <div class="pkg-price">₹5,00,000</div>
+          <div class="pkg-period">Includes 6 months support</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>3 end-to-end automation workflows</li>
+            <li>Monitoring dashboards & alerts</li>
+            <li>6 months managed support</li>
+            <li>Runbooks and documentation</li>
+            <li>24hr incident response SLA</li>
+            <li>Monthly performance reports</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-primary" style="width:100%;justify-content:center">Get Started →</a>
+        </div>
+        <div class="pkg-card">
+          <div><span class="badge">Enterprise</span></div>
+          <div class="pkg-price">₹20,00,000+</div>
+          <div class="pkg-period">Custom engagement</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Full platform architecture & build</li>
+            <li>Unlimited workflows & integrations</li>
+            <li>Managed operations (SRE)</li>
+            <li>Dedicated engineering team</li>
+            <li>Enterprise SLA & compliance</li>
+            <li>Executive reporting & reviews</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Talk to Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-section">
+    <div class="container" style="max-width:720px">
+      <div class="section-label">FAQ</div>
+      <h2 style="margin-top:12px">Common questions</h2>
+      <div class="faq" id="faq">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How do you handle project scope changes? <span class="chevron">▾</span></button>
+          <div class="faq-a">We use a milestone-based approach with regular demos. Any scope changes are discussed openly with impact on timeline and cost before proceeding. No surprise invoices.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I own the code you write? <span class="chevron">▾</span></button>
+          <div class="faq-a">Yes — always. All code, repositories, infrastructure configuration, and documentation belong to you from day one. We hand over everything at project completion with a knowledge transfer session.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What is your typical project timeline? <span class="chevron">▾</span></button>
+          <div class="faq-a">Discovery takes 1–2 weeks. Most MVP projects run 6–10 weeks from kickoff to launch. Larger enterprise projects are scoped per engagement. We'll give you a clear timeline estimate during our initial call.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can you work with our existing team? <span class="chevron">▾</span></button>
+          <div class="faq-a">Absolutely. We regularly embed with existing engineering teams, pick up existing codebases, and augment capacity. We adapt to your workflow and tooling preferences.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What does the free strategy call include? <span class="chevron">▾</span></button>
+          <div class="faq-a">A 30-minute call with a senior engineer to understand your challenge, map it to a practical approach, and provide a rough scope and timeline estimate. No obligation, no sales pressure.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--blue);padding:80px 0;text-align:center;">
+    <div class="container">
+      <h2 style="color:#fff;margin-bottom:12px">Not sure which service you need?</h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:46ch;margin:0 auto 32px">Book a free 30-minute call with one of our engineers. We'll listen, ask the right questions, and point you in the right direction — no obligation.</p>
+      <a href="index.html#contact" class="btn btn-lg" style="background:#fff;color:var(--blue);font-weight:700">Book a Free Strategy Call →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="color:inherit;text-decoration:none">
+            <div class="brand-mark">V</div>
+            <div><div class="brand-text">VStack</div><div class="brand-sub">Automation & Software</div></div>
+          </a>
+          <p class="footer-desc">Enterprise-grade automation and software engineering — shipped faster.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="team.html">Team</a><a href="why-us.html">Why Us</a></div>
+        <div class="footer-col"><h5>Services</h5><a href="products.html">Custom Software</a><a href="products.html">Automation</a><a href="products.html">Data Engineering</a><a href="products.html">Mobile Apps</a></div>
+        <div class="footer-col"><h5>Contact</h5><a href="mailto:hello@vstack.in">hello@vstack.in</a><a href="tel:+917894492820">+91 78944 92820</a><a href="index.html#contact">Book a Call</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 VStack — Bhubaneswar, Odisha, India</span>
+        <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { const open = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', open); });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => { b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
+        if (!expanded) { btn.setAttribute('aria-expanded','true'); btn.nextElementSibling.classList.add('open'); }
+      });
+    });
+  </script>
 </body>
 </html>
